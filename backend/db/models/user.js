@@ -1,6 +1,6 @@
 'use strict';
 const {Validator} = require('sequelize');
-
+const bcrypt = require('bcryptjs')
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
@@ -53,7 +53,9 @@ module.exports = (sequelize, DataTypes) => {
     return {id, username, email};
   };
 
-
+User.prototype.validatePassword = function (password) {
+  return bcrypt.compareSync(password, this.hashedPassword.toString());
+}
 // takes in an id and returns the user matching that id 
   User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);
