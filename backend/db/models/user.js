@@ -96,7 +96,9 @@ User.prototype.validatePassword = function (password) {
   }
 
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Booking, {foreignKey: 'userId'});
+    User.hasMany(models.Review, {foreignKey: 'userId'});
+    User.hasMany(models.Campsite, {foreignKey: 'userId'});
   };
   return User;
 };
