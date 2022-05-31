@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       }
     },
+    host: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,

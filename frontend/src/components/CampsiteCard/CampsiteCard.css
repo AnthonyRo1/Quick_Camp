@@ -1,0 +1,11 @@
+.campsite-card {
+  margin: 0 auto;
+  display: block;
+  width: 365px;
+  height: 364px;
+  background-color: blue;
+  margin-bottom: 150px;
+  border-radius: 25px;
+  padding: 10px;
+
+}

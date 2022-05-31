@@ -1,10 +1,19 @@
 import React, {useState, useEffect } from 'react';
-import {useDispatch} from 'react-redux';
 import * as sessionActions from '../../store/session';
+import image from '../../images/Camping_Land/camping_1.jpg'
+
+import { data } from '../../data/mockdata.js';
+import CampsiteCard from '../CampsiteCard';
+import './Main.css'
 const Main = () => {
+ 
   return (
-    <div>
-      <h1>HELLO</h1>
+    <div className='main-home'>
+      {
+        data.map((data, i) => (
+          <CampsiteCard key={i} title={data.title} location={data.location}/>
+        ))
+      }
     </div>
   )
 }

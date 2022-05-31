@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     checkIn: DataTypes.DATE,
     checkOut: DataTypes.DATE,
     userId: DataTypes.INTEGER,
-    campsiteId: DataTypes.INTEGER
+    campsiteId: DataTypes.INTEGER,
+    totalCost: DataTypes.DECIMAL,
+    
   }, {});
   Booking.associate = function(models) {
     Booking.belongsTo(models.Campsite, {foreignKey: 'campsiteId'});

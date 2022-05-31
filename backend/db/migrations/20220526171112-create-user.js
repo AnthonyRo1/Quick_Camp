@@ -10,17 +10,22 @@ module.exports = {
       },
       username: {
         allowNull: false,
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(30), // <-- username
         unique: true
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING(256),
+        type: Sequelize.STRING(256), // <-- email 
         unique: true
+      },
+      host: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN, // <-- BOOLEAN - Can the user HOST ? (Default value false)
+        defaultValue: false
       },
       hashedPassword: {
         allowNull: false,
-        type: Sequelize.STRING.BINARY
+        type: Sequelize.STRING.BINARY // hashed password 
       },
       createdAt: {
         allowNull: false,

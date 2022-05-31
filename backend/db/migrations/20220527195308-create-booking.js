@@ -10,21 +10,25 @@ module.exports = {
       },
       checkIn: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE // <-- date of check in 
       },
       checkOut: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE // <-- date of check out 
       },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: 'Users'}
+        references: {model: 'Users'} // user id associated with booking
       },
       campsiteId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: 'Campsites'}
+        references: {model: 'Campsites'} // campsite id associated with booking
+      },
+      totalCost: {
+        allowNull: false,
+        type: Sequelize.DECIMAL(6, 2) // total cost of night stay
       },
       createdAt: {
         allowNull: false,

@@ -1,0 +1,7 @@
+.main-home {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 65vw;
+  padding-top: 100px;
+}
