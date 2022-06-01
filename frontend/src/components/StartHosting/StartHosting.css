@@ -1,0 +1,34 @@
+
+
+.host-form {
+  background-color: white;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: -10%;
+  width: 500px;
+  transition: transform 0.2s ease-in;
+  height: 500px;
+}
+
+.hf-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+}
+
+
+.hf-form > input {
+  width: 200px;
+  height: 35px;
+}
+
+
+ .active-y {
+  transform: translateY(50%)
+}
+

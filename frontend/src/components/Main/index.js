@@ -10,8 +10,6 @@ const Main = () => {
   // here I can use a useSelector to pass in data as props to my campsites 
   const campsites = useSelector(state => state.campsites)
   const allSites = Object.values(campsites);
-
-  console.log(allSites);
   return (
       <div className='main-entire'>
         <div className='mf-container'>

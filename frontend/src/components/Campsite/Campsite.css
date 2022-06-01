@@ -1,0 +1,59 @@
+.cs-container {
+  /* margin-top: 8%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100%; */
+  /* width: 100%; */
+}
+.cs-i-container {
+  display: flex;
+  flex-direction: row;
+
+}
+.cs-images {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+}
+
+.cs-lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.cs-book-container {
+  z-index: 0;
+  position: sticky;
+  right: 10%;
+  top: 18%;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(129, 128, 128);
+  /* margin-top: -2%; */
+  /* overflow: hidden; */
+}
+
+
+
+.cs-lower-content {
+  display: inline;
+  position: relative;
+  right: 2%;
+  width: 50%;
+  height: 3000px;
+  border: 2px solid black;
+}
+
+
+.cs-lower-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 8%;
+  border: 2px solid black;
+}

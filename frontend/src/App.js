@@ -9,7 +9,9 @@ import {getCampsites} from './store/campsites';
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
 import Campsite from "./components/Campsite";
-import MainForm from "./components/MainForm";
+import StartHosting from "./components/StartHosting";
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,8 +34,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/campsites/:campsiteId'>
+          <Route path='/campsites/:id'>
             <Campsite />
+          </Route>
+          <Route path='/hosting'>
+            <StartHosting />
           </Route>
         </Switch>
       )}
