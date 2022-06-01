@@ -14,13 +14,13 @@ module.exports = {
       },
       description: {
         allowNull: false,
-        type: Sequelize.STRING(255) // <-- campsite description
+        type: Sequelize.STRING(350) // <-- campsite description
       },
       guestsAllowed: {
         allowNull: false,
         type: Sequelize.INTEGER // <-- number of guests allowed 
       },
-      toalRating: { 
+      totalRating: { 
         type: Sequelize.INTEGER // <--- campsite rating (will be null at creation time)
       },
       pricePerNight: {
@@ -37,23 +37,23 @@ module.exports = {
       },
       image1: {
         allowNull: false,
-        type: Sequelize.STRING(255), // <--- campsite image (Must have at least one)
+        type: Sequelize.STRING(350), // <--- campsite image (Must have at least one)
         unique: true,
       },
       image2: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.STRING(350),
         unique: true,
       },
       image3: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.STRING(350),
         unique: true,
       },
       image4: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.STRING(350),
         unique: true,
       },
       image5: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.STRING(350),
         unique: true,
       },
       userId: {
@@ -63,11 +63,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     });
   },

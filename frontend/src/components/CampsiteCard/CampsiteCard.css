@@ -1,11 +1,49 @@
+.cc-container {
+  padding-top: 110px;
+}
+
 .campsite-card {
   margin: 0 auto;
-  display: block;
+  position: relative;
   width: 365px;
   height: 364px;
   background-color: blue;
-  margin-bottom: 150px;
-  border-radius: 25px;
-  padding: 10px;
+  border-radius: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out 0s;
+  /* transition: box-shadow 0.2s ease-in-out; */
+}
 
+.campsite-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.178);
+  /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.178); */
+}
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding-top: 14px;
+  margin-left: 20px;
+}
+
+
+.cc-city {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    font-weight: 500;
+    color: rgb(40, 64, 12);
+    font-family: Calibre, Helvetica, Arial, sans-serif;
+}
+
+.cc-state { 
+      margin-left: 5px;
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: 0px;
+      font-weight: 400;
+      color: rgb(40, 64, 12);
+      font-family: Calibre, Helvetica, Arial, sans-serif;
 }

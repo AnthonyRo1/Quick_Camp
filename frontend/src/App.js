@@ -5,13 +5,17 @@ import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
+import {getCampsites} from './store/campsites';
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
+import Campsite from "./components/Campsite";
+import MainForm from "./components/MainForm";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(getCampsites())
   }, [dispatch]);
 
   return (
@@ -19,7 +23,7 @@ function App() {
       <Navigation className='nav-bar' isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/' exact>
+          <Route path='/campsites' exact>
             <Main />
           </Route>
           <Route path="/login">
@@ -27,6 +31,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path='/campsites/:campsiteId'>
+            <Campsite />
           </Route>
         </Switch>
       )}

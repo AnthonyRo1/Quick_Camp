@@ -3,7 +3,7 @@ import './Navigation.css'
 import logo from '../../images/logo/quickcamp-logo.png'
 const HomeButton = () => {
   return (
-    <NavLink className='home' exact to="/"><img src={logo} className='home-btn'></img></NavLink>
+    <NavLink className='home' exact to="/campsites"><img src={logo} className='home-btn'></img></NavLink>
   )
 }
 
