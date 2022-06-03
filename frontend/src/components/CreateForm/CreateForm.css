@@ -1,0 +1,72 @@
+body {
+}
+
+.create-form-container {
+ margin: 0 auto;
+ margin-top: 140px;
+ height: 900px;
+ width: 600px;
+ background-color: #e8e2d5;
+ box-shadow: 1px 6px 5px rgba(0, 0, 0, 0.295);
+ transition: margin-top 0.2s ease-in 0s;
+ border-radius: 20px;
+}
+
+.cs-create-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #da451b;
+  border-radius: 20px;
+}
+
+
+.cs-create-form > input {
+ height: 25px;
+ width: 90%;
+ border: none;
+ background-color: white;
+ border-radius: 5px;
+ padding: 5px;
+ border: 1px solid #333333;
+ font-size: 16px;
+}
+
+.cs-create-form > textarea {
+  height: 100px;
+  width: 80%;
+  border-radius: 5px;
+  resize: none;
+  border-color: #333333;
+  padding: 5px;
+}
+
+
+#cs-cf-text {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+#host-submit-btn {
+  height: 40px;
+  width: 300px;
+  border-radius: 5px;
+  border: 0px transparent;
+  background-color: #da451b;
+  transition: all 0.25s ease-in-out 0s;
+  font-size: 20px;
+  color: white;
+}
+
+#host-submit-btn:hover {
+  background-color: white;
+  color: #da451b;
+  border: 1px solid #da451b;
+}

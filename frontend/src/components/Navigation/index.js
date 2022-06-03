@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import CreateCampsite from '../CreateCampsite';
 import logo from '../../images/logo/quickcamp-logo.png'
 import './Navigation.css';
 
@@ -13,7 +14,10 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
+      <div className='logged-in-nav'>
       <ProfileButton user={sessionUser} />
+      <CreateCampsite />
+      </div>
     );
   } else {
     sessionLinks = (

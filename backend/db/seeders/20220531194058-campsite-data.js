@@ -77,7 +77,23 @@ module.exports = {
         image4: null,
         image5: null,
         userId: 1
-      },
+      }
+      // {
+      //   name:'',
+      //   description:'',
+      //   guestsAllowed:'',
+      //   totalRating:'',
+      //   pricePerNight:'',
+      //   city:'',
+      //   state:'',
+      //   image1:'',
+      //   image2:'',
+      //   image3:'',
+      //   image4:'',
+      //   image5:'',
+      //   userId:'',
+        
+      // }
     ])
   },
 

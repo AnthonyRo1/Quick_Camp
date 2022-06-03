@@ -21,7 +21,7 @@ const MainForm = () => {
         <input className='mf-input mf-date' type="date" name="where-to-date"></input>
         </div>
         <div className='dd-input'>
-        <label for='guests' className='mf-labels'>Guests</label>
+        <label htmlFor='guests' className='mf-labels'>Guests</label>
         <div className="mf-input mf-dropdown" name='guests'>
           <div className='dd-container'>
             <span>Add Guests</span>

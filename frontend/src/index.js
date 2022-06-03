@@ -10,7 +10,7 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as campsiteActions from './store/campsites';
-
+import { createContext, useContext, useState } from 'react';
 
 
 const store = configureStore();
@@ -24,10 +24,16 @@ if (process.env.NODE_ENV !== 'production') {
   window.campsiteActions = campsiteActions;
 }
 
+const cancelBtnContext = createContext();
+export const useBtnContext = () => useContext(cancelBtnContext);
+
 
 function Root() {
+
+  const [hideBtn, setHideBtn] = useState(true);
+
   return (
-    <Provider store={store}>
+    <Provider store={store} value={[hideBtn, setHideBtn]}>
       <BrowserRouter>
       <App />
       </BrowserRouter>

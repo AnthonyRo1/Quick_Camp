@@ -10,6 +10,7 @@ import Navigation from "./components/Navigation";
 import Main from "./components/Main";
 import Campsite from "./components/Campsite";
 import StartHosting from "./components/StartHosting";
+import CreateForm from "./components/CreateForm";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
       <Navigation className='nav-bar' isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/campsites' exact>
+          <Route path='/' exact>
             <Main />
           </Route>
           <Route path="/login">
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path='/hosting'>
             <StartHosting />
+          </Route>
+          <Route path='/new'>
+            <CreateForm />
           </Route>
         </Switch>
       )}

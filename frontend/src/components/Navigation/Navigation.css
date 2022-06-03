@@ -88,3 +88,14 @@
   justify-content: center;
   align-items: center;
 }
+
+/* WHEN THE USER IS LOGGED IN CSS */
+
+
+.logged-in-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 500px;
+
+}

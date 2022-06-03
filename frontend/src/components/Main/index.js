@@ -1,7 +1,5 @@
 import React, {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as campsiteActions from '../../store/campsites';
-import { data } from '../../data/mockdata.js';
 import CampsiteCard from '../CampsiteCard';
 import MainForm from '../MainForm';
 import './Main.css'

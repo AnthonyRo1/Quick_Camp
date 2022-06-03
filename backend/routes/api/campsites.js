@@ -24,5 +24,21 @@ router.get('/', asyncHandler( async(req, res) => {
 }));
 
 
+router.post('/', asyncHandler( async(req, res) => {
+  const campsite = await Campsite.create(req.body);
+  return res.json(campsite);
+}))
+
+router.put('/:id', asyncHandler( async(req, res) => {
+  const id = Number(req.params['id'])
+  console.log(id);
+  const campsite = await Campsite.findByPk(id)
+
+  await campsite.update(req.body);  
+
+  return res.json(campsite);
+}))
+
+
 
 module.exports = router;
