@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const GET_CAMPSITES = 'campsites/getCampsites';
 const ADD_CAMPSITE = 'campsites/addCampsite';
 const EDIT_CAMPSITE = 'campsites/editCampsite';
+const REMOVE_CAMPSITE = 'campsites/removeCampsite';
 
 
 export const getAllCampsites = (campsites) => {
@@ -25,6 +26,17 @@ const editOneCampsite = (campsite) => {
     campsite
   }
 }
+
+const removeOneCampsite = (campsiteId) => {
+  return {
+    type: REMOVE_CAMPSITE,
+    campsiteId
+  }
+}
+// ---- actions above 
+
+
+// ---- thunks below 
 
 export const getCampsites = () => async dispatch => {
   const res = await csrfFetch('/api/campsites')
@@ -76,6 +88,19 @@ export const editCampsite = (id, data) => async dispatch => {
 }
 
 
+export const removeCampsite = (id) => async dispatch => {
+  const res = await csrfFetch(`/api/campsites/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (res.ok) {
+    const {id: removedId } = await res.json();
+    dispatch(removeOneCampsite(removedId))
+    return removedId;
+  }
+}
+
+
 
 export default function campsitesReducer(state = {}, action) {
   let newState = {}
@@ -100,6 +125,12 @@ export default function campsitesReducer(state = {}, action) {
         };
         newState[action.campsite.id] = action.campsite;
         return newState
+      case REMOVE_CAMPSITE: 
+           newState = {
+             ...state,
+           };
+      delete newState[action.campsiteId]
+      return newState;
     default:
       return state;
   }

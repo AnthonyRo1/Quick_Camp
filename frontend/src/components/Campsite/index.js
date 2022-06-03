@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {NavLink} from 'react-router-dom';
 import EditButton from "../EditCampsite/editbutton";
+import DeleteButton from "../EditCampsite/deletebutton";
 import './Campsite.css';
 
 const Campsite = () => {
@@ -10,12 +11,22 @@ const Campsite = () => {
   console.log(id, 'campsiteid');
   const campsites = useSelector(state => state.campsites);
   const sessionUser = useSelector(state => state.session.user);
+
   const [daysStayed, setDaysStayed] = useState(1);
+
+  const [checkIn, setCheckIn] = useState('');
+  const [checkout, setCheckout] = useState('');
+  const [numAdults, setNumAdults] = useState(0);
+  const [numChildren, setNumChildren] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0)
+
+
 
 
   const campsite = campsites[id];
-  let images = [];
 
+  // images array 
+  let images = [];
   if (campsite !== undefined) {
     for (let i = 1; i <= 5; i++) {
       if (campsite[`image${i}`] !== null) {
@@ -23,23 +34,73 @@ const Campsite = () => {
       }
     }
   }
+  // images array 
 
+
+
+  const [checkInDate, setCheckInDate] = useState('');
+  const [checkoutDate, setCheckoutDate] = useState('');
+
+
+  // get current date + tomorrow's date 
   const today = new Date()
   const tomorrow = new Date(today)
    tomorrow.setDate(tomorrow.getDate() + 1)
-
-
+ 
   const dateTmrw = tomorrow.toISOString().split('T')[0];
   const dateToday = today.toISOString().split('T')[0];
+  // get current date + tomrrow's date 
 
 
 
-  //on change of date object 
-  const days = (date_1, date_2) => {
+  const dayAhead = (checkIn) => {
+    const nextDay = new Date(checkIn);
+    nextDay.setDate(nextDay.getDate() + 1);
+
+    const dateNext = nextDay.toISOString().split('T')[0];
+     return dateNext
+  }
+
+  
+
+  // Num days between two dates 
+  const daysBetween = (date_1, date_2) => {
     let difference = date_1.getTime() - date_2.getTime();
     let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
     return TotalDays;
   }
+  // Num days between two dates;
+
+
+
+
+  const updateCheckIn = (e) => {
+    setCheckIn(e.target.value);
+  }
+
+  const updateCheckout = (e) => {
+    setCheckout(e.target.value);
+  }
+
+  const updateAdults = (e) => {
+    setNumAdults(e.target.value);
+  }
+
+  const updateChildren = (e) => {
+    setNumChildren(e.target.value);
+  }
+
+  
+
+
+  // useEffect(() => {
+  //   if (daysBetween(checkIn, checkout) <= 0) {
+  //     setCheckout(dayAhead(checkIn));
+  //   }
+
+  // }, [checkIn, checkout])
+  
+  
   
 
 
@@ -51,7 +112,11 @@ const Campsite = () => {
   let sessionEdit;
   if (sessionUser?.id === campsite?.userId) {
      sessionEdit = (
+       <>
+      <DeleteButton campsiteId={id} />
       <EditButton campsiteId={id}/>
+      
+      </>
     )
   }
 
@@ -59,7 +124,9 @@ const Campsite = () => {
   return (
     
     <div className="cs-container">
+      <div className='ed-container'>
       {sessionEdit}
+      </div>
       <div className='cs-i-container'>
 
     
@@ -130,6 +197,9 @@ const Campsite = () => {
           <div className='bc-nights-stay'>
             <div id='bc-ns-num-box'>
               <span id='bc-ns-num'>1</span>
+            </div>
+            <div id='bc-ns-fullprice'>
+              <span id='bc-ns-fp'>Total:</span>
             </div>
           </div>
           <div className='cs-bc-submit'>

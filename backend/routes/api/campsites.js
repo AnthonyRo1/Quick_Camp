@@ -37,6 +37,16 @@ router.put('/:id', asyncHandler( async(req, res) => {
   await campsite.update(req.body);  
 
   return res.json(campsite);
+}));
+
+
+router.delete('/:id', asyncHandler( async(req, res) => {
+  const id = Number(req.params['id']);
+  console.log(id);
+  const campsite = await Campsite.findByPk(id);
+  await campsite.destroy();
+  
+  return res.json({id});
 }))
 
 

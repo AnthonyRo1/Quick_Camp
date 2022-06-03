@@ -11,6 +11,7 @@ const EditButton = ({campsiteId}) => {
   const [cancel, setCancel] = useState(true)
   const togglePopup = () => {
     setPopup(!popup);
+
   }
 
   const toggleCancel = () => {

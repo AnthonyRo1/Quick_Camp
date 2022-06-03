@@ -1,3 +1,12 @@
+.ed-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  border: 1px solid black;
+}
+
 .cs-container {
   margin-top: 8%;
   display: flex;
@@ -252,8 +261,20 @@
 
 #bc-ns-num {
   font-size: 24px;
+  text-shadow: 1px 6px 5px rgba(0, 0, 0, 0.247);
+}
+#bc-ns-fullprice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+
+#bc-ns-fp {
+  color: #333333;
+  font-size: 18px;
+}
 #bc-ns-dec {
   width: 50px;
   height: 50px;
