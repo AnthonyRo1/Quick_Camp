@@ -1,0 +1,167 @@
+.bookings-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  text-align: center;
+  position: relative;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  border: 1px solid black;
+
+}
+
+
+.ab-single-container {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 50%;
+  background-color: white;
+  border: 2px solid black;
+  margin-bottom: 25px;
+  border-radius: 5px;
+
+} 
+
+
+.ab-camp-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+}
+
+#ab-camp-text {
+  font-size: 24px;
+}
+
+.dates-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+#dc-ci-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border: 1px solid black;
+  border-left: none;
+  border-right: none;
+  height: 100%;
+}
+
+#dc-co-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border: 1px solid black;
+  border-right: none;
+  height: 100%;
+}
+
+.dc-label {
+  font-size: 20px;
+}
+
+.dc-date-text {
+  font-size: 18px;
+}
+.ab-guests-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+}
+
+#ab-guests-text {
+  font-size: 22px;
+}
+
+.ab-price-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border: 1px solid black;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+  
+}
+
+#ab-price-text {
+  font-size: 20px;
+}
+
+
+.edit-booking-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bf-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 45px;
+  margin-top: 25px;
+}
+
+.booking-edit-form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #e8e2d5;
+  width: 200px;
+  height: 260px;
+  border-radius: 5px;
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.185);
+
+}
+
+
+.booking-edit-form > input  {
+  width: 80%;
+}
+
+#update-btn-bk, #delete-btn-bk {
+  position: relative;
+  right: 5%;
+  width: 80px;
+  height: 30px;
+  margin-top: 10px;
+  background-color: #40d9ac;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#delete-btn-bk {
+  left: 5%;
+  background-color: rgb(255, 66, 66);
+  cursor: pointer;
+}
+

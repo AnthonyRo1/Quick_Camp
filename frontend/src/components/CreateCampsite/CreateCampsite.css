@@ -17,12 +17,34 @@
   transition: all 0.25s ease-in-out 0s;
   color: white;
   font-weight: 500;
+  /* margin-right: 20px; */
 }
 
 #create-btn:hover {
   background-color: white;
   border: 2px solid #40d9ac;
-  border-color: #40d9ac;
   color: #40d9ac;
   cursor: pointer
 }
+
+#create-btn-text {
+  color: #333333;
+  font-size: 18px;
+}
+
+/* .cancel-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f14e4e;
+    margin-right: 10px;
+    border-radius: 50%;
+    transition: all 0.25s ease-in-out 0s;
+    color: white;
+    font-weight: 500;
+} */
+
+

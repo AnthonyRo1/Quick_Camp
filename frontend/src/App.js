@@ -11,14 +11,16 @@ import Main from "./components/Main";
 import Campsite from "./components/Campsite";
 import StartHosting from "./components/StartHosting";
 import CreateForm from "./components/CreateForm";
-
+import Bookings from "./components/Bookings";
+import {getBookings} from './store/bookings'
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    dispatch(getCampsites())
+    dispatch(getCampsites());
+    dispatch(getBookings());
   }, [dispatch]);
 
   return (
@@ -43,6 +45,9 @@ function App() {
           </Route>
           <Route path='/new'>
             <CreateForm />
+          </Route>
+          <Route path='/bookings'>
+            <Bookings />
           </Route>
         </Switch>
       )}

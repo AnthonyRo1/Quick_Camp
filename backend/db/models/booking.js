@@ -3,10 +3,10 @@ module.exports = (sequelize, DataTypes) => {
   const Booking = sequelize.define('Booking', {
     checkIn: DataTypes.DATE,
     checkOut: DataTypes.DATE,
+    totalGuests: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     campsiteId: DataTypes.INTEGER,
     totalCost: DataTypes.DECIMAL,
-    
   }, {});
   Booking.associate = function(models) {
     Booking.belongsTo(models.Campsite, {foreignKey: 'campsiteId'});

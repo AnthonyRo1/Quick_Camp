@@ -1,10 +1,11 @@
 // frontend/src/components/Navigation/index.js
+import { useParams } from 'react-router-dom';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import CreateCampsite from '../CreateCampsite';
-import logo from '../../images/logo/quickcamp-logo.png'
+import BookingsButton from './bookingsbutton';
 import './Navigation.css';
 
 import HomeButton from './homebutton';
@@ -17,6 +18,7 @@ function Navigation({ isLoaded }) {
       <div className='logged-in-nav'>
       <ProfileButton user={sessionUser} />
       <CreateCampsite />
+      <BookingsButton />
       </div>
     );
   } else {
@@ -39,7 +41,7 @@ function Navigation({ isLoaded }) {
     <div className='nav-bar'>
       <HomeButton />
     <ul className='ul-container'>
-        <li className='list-container'>
+        <li className={sessionUser ? 'user-nav' : 'list-container'}>
         {isLoaded && sessionLinks}
       </li>
     </ul>

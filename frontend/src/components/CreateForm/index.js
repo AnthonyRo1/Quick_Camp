@@ -22,7 +22,7 @@ const CreateForm = () => {
   const [description, setDescription] = useState('');
   const [guestsAllowed, setGuestsAllowed] = useState(0);
   const [pricePerNight, setPricePerNight] = useState(1)
-  const [errors, setErrors] = useState([]);
+  
 
 
   const updateName = (e) => setName(e.target.value);
@@ -38,12 +38,24 @@ const CreateForm = () => {
   const updateDescription = (e) => setDescription(e.target.value);
 
 
+  const [errors, setErrors] = useState([]);
+
+  // useEffect(() => {
+
+
+  // }, [name, city, state, image1, image2, image3, image4, image5])
+
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id;
 
 
   const totalRating = null;
+  let errs;
+
+
+
   const handleSubmit = async  (e) => {
+
     e.preventDefault();
 
     const payload = {
@@ -65,15 +77,15 @@ const CreateForm = () => {
 
     let createdCampsite;
 
-    console.log(createdCampsite);
     
       createdCampsite = await dispatch(createCampsite(payload));
-       history.push(`/campsites/${createdCampsite.id}`);
-      
+      history.push(`/campsites/${createdCampsite.id}`);
+
   }
 
   return (
-    <div className={ slideIn ? 'create-form-container .active-form' : 'create-form-container .inactive-form'} >
+    <div className='create-form-container' >
+      {errs}
     <form className='cs-create-form' onSubmit={handleSubmit}>
       <span id='cs-cf-text'>Sign up for free and start hosting!</span>
 

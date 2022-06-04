@@ -16,6 +16,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE // <-- date of check out 
       },
+      totalGuests: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,

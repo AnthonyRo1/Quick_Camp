@@ -11,7 +11,8 @@ const { User } = require('../../db/models');
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const campsiteRouter = require('./campsites.js')
+const campsiteRouter = require('./campsites.js');
+const bookingsRouter = require('./bookings.js');
 
 
 router.use('/session', sessionRouter);
@@ -19,6 +20,8 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 router.use('/campsites', campsiteRouter);
+
+router.use('/bookings', bookingsRouter)
 
 
 
