@@ -6,21 +6,50 @@ import EditButton from "../EditCampsite/editbutton";
 import DeleteButton from "../EditCampsite/deletebutton";
 import {createBooking} from '../../store/bookings'
 import './Campsite.css';
+import Review from "../Review";
+import AddReview from "../Review/addReview";
+import { csrfFetch } from "../../store/csrf";
 
 const Campsite = () => {
   const { id } = useParams();
   const history = useHistory()
   const dispatch = useDispatch();
+
+  // campsites + session user 
   const campsites = useSelector(state => state.campsites);
   const sessionUser = useSelector(state => state.session.user);
+
+  // userId + campsiteId
   const userId = sessionUser?.id;
   const campsite = campsites[id];
+  const camperId= campsite?.userId;
+
+  // reviews + username / id 
+  const reviews = useSelector(state => state.reviews);
+  const allReviews = Object.values(reviews)
+  const campsiteReviews = allReviews.filter(review => review.campsiteId === campsite?.id);
+
+
+  
+
+
   const [index, setIndex] = useState(0);
   
 
-  
+  const [host, setHost] = useState(null);
+
+
  useEffect(() => {
    window.scrollTo(0, 0)
+
+   const fetchData = async() => {
+     const res = await csrfFetch(`/api/session/${camperId}`)
+     const data = await res.json();
+     setHost(data);
+   }
+
+   fetchData().catch(error => console.log(error))
+
  }, [])
 
 
@@ -244,12 +273,28 @@ const Campsite = () => {
              </div>
              <div id='cs-hosted-by'>
                 <span id='hb-text'>Hosted by:</span>
-                <span id='hb-name'>Name Here</span>
+                <span id='hb-name'>{host && host.username}</span>
              </div>
              <div id='cs-desc'>
               <span id='cs-desc-text'>{campsite?.description}</span>
              </div>
           </div>
+         </div>    
+         {/* REVIEWS GO HERE REVIEWS REVIEWS REVIEWS  */}
+         <div className='review-container'>
+           <div className='review-info'>
+             <div className='ri-count'>X reviews..</div>
+             <AddReview campsiteId={campsite?.id} userId={userId}/>
+           </div>
+            {/* Iterate over all reviews */}
+            {
+              campsiteReviews.map((review, i) => (
+                <Review key={i} review={review?.review} date={review?.createdAt} userId={review?.userId}/>
+              ))
+              
+            }
+            
+            {/* Iterate through all reviews */}
          </div>
         </div>
         {/* Lower Content (reviews + booking form) */}
@@ -339,7 +384,7 @@ const Campsite = () => {
             </div>
           </div>
           <div className='cs-bc-submit'>
-            <span>Finalize Your Stay</span>
+            <span id='finalize'>Finalize Your Stay</span>
             <button type='submit' id='bc-submit'>Quick Book</button>
           </div>
         </form>

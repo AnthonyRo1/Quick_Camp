@@ -42,7 +42,7 @@ const CreateForm = () => {
 
   useEffect(() => {
   const images = [image1, image2, image3, image4, image5];
-  const allImages = images.filter(image => image.length <= 0);
+  const allImages = images.filter(image => image.length > 0);
 
   const errors = [];
 
@@ -59,7 +59,7 @@ const CreateForm = () => {
   if (state.length <= 2 || state.length >= 45) {
     errors.push('State name must be no longer than 45 characters and greater than 2 characters.')
   }
-  if (allImages.length <= 0) {
+  if (allImages.length < 0) {
     errors.push('Your Campsite must have at least 1 image.')
   }
 

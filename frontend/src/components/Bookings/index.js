@@ -24,7 +24,7 @@ const Bookings = () => {
 
   return (
     <div className='bookings-container'>
-      {
+      { bookings.length > 0 &&
         bookings.map((booking, i) => (
           <Booking 
           key={i}
@@ -35,8 +35,12 @@ const Bookings = () => {
           totalGuests={booking.totalGuests}
           id={booking.id}
           campsiteId={booking.campsiteId}
-          />
+          /> 
         ))
+      }
+      {
+        bookings.length === 0 && 
+        <div>No bookings available.</div>
       }
     </div>
   )

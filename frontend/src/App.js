@@ -14,8 +14,8 @@ import CreateForm from "./components/CreateForm";
 import Bookings from "./components/Bookings";
 import {getBookings} from './store/bookings'
 import {useHistory} from 'react-router-dom';
-
-
+import {getReviews} from './store/reviews';
+import {getUsers} from './store/session';
 function App() {
 
 
@@ -28,6 +28,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(getCampsites());
     dispatch(getBookings());
+    dispatch(getReviews());
   }, [dispatch]);
 
 

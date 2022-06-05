@@ -2,12 +2,18 @@
   import { useSelector, useDispatch } from 'react-redux';
   import {useState} from 'react';
   import { removeCampsite } from '../../store/campsites';
+  import { removeReview } from '../../store/reviews';
   import './EditCampsite.css';
 
 
 const DeleteButton = ({campsiteId}) => {
   
   const dispatch = useDispatch();
+  const reviews = useSelector(state => state.reviews);
+  const allReviews = Object.values(reviews);
+
+  const matchedReviews = allReviews.filter(review => review?.campsiteId === campsiteId)
+  console.log(matchedReviews)
   const history = useHistory();
   const [confirm, setConfirm] = useState(false);
 
@@ -15,9 +21,17 @@ const DeleteButton = ({campsiteId}) => {
       setConfirm(!confirm);
   }
 
-  const handleSubmit = () => {
-    dispatch(removeCampsite(campsiteId));
-    history.push('/')
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (matchedReviews.length > 0) {
+       matchedReviews.map((review )=> {
+       dispatch(removeReview(review?.id))
+       }).then(console.log('hello'))
+    }
+
+    await dispatch(removeCampsite(campsiteId));
+    await history.push('/')
   }
 
 

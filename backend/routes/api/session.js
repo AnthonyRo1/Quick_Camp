@@ -25,6 +25,18 @@ const validateLogin = [
 ]
 
 // create a session upon user sign-up / login 
+
+
+
+router.get('/:id', asyncHandler(async (req, res) => {
+  const id = req.params['id'];
+  const user = await User.getCurrentUserById(id);
+
+  return res.json(user);
+}))
+
+
+
 router.post('/', validateLogin, asyncHandler(async (req, res, next) => {
   const {credential, password} = req.body;
 

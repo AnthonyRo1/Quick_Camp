@@ -17,17 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, {});
   Campsite.associate = function(models) {
-    Campsite.hasMany(models.Review, {foreignKey: 'campsiteId'});
+    Campsite.hasMany(models.Review, {foreignKey: 'campsiteId', onDelete: 'cascade',hooks: true});
     Campsite.hasMany(models.Booking, {foreignKey: 'campsiteId'});
     Campsite.belongsTo(models.User, {foreignKey: 'userId'});
   };
   return Campsite;
 };
 
-// adding -> (AFTER RATING)
-/* 
-pricePerNight
-city 
-state 
-imageUrl1 through 5
-*/

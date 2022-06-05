@@ -13,6 +13,7 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const campsiteRouter = require('./campsites.js');
 const bookingsRouter = require('./bookings.js');
+const reviewsRouter = require('./reviews.js');
 
 
 router.use('/session', sessionRouter);
@@ -21,7 +22,9 @@ router.use('/users', usersRouter);
 
 router.use('/campsites', campsiteRouter);
 
-router.use('/bookings', bookingsRouter)
+router.use('/bookings', bookingsRouter);
+
+router.use('/reviews', reviewsRouter);
 
 
 

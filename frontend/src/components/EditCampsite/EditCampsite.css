@@ -1,15 +1,15 @@
 .ef-btn {
   position: absolute;
-  top: 22.5%;
-  left: 20.2%;
+  top: 10.5%;
+  left: 10.2%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   z-index: 1;
-  height: 40px;
-  width: 80px;
-  background-color: #02c587;
+  height: 30px;
+  width: 100px;
+  background-color: #02a8c5;
   color: white;
   text-align: center;
   border-color: transparent;
@@ -49,9 +49,9 @@
 }
 
 .ef-btn:hover {
-  color: #02c587;
+  color: #02a8c5;
   background-color: white;
-  border: 2px solid #02c587;
+  border: 2px solid #02a8c5;
 }
 .ef-main-container {
   display: flex;
@@ -174,15 +174,15 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 10.8%;
-  top: 22.5%;
-  width: 80px;
-  height: 40px;
+  left: 2.8%;
+  top: 10.5%;
+  width: 100px;
+  height: 30px;
   background-color:rgb(255, 66, 66);
   color: white;
   border-radius: 4px;
   border-color: transparent;
-  transition: all 0.2s ease-in-out 0s;
+  transition: all 0.1s ease-in-out 0s;
   font-size: 18px;
   cursor: pointer;
   text-align: center;
@@ -192,8 +192,8 @@
 
 
 .ef-delete-btn:hover {
-  background-color: rgb(102, 0, 0);
-  border: 2px solid rgb(255, 109, 109);
+  background-color: rgba(255, 66, 66, 0.89);
+  border: 2px solid white;
 }
 
 .ef-confirm-box {
