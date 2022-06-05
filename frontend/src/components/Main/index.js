@@ -6,6 +6,14 @@ import './Main.css'
 const Main = () => {
   // dispatch made in App.js 
   // here I can use a useSelector to pass in data as props to my campsites 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  }
   const campsites = useSelector(state => state.campsites)
   const allSites = Object.values(campsites);
   return (
@@ -28,9 +36,9 @@ const Main = () => {
           ))
         }
       </div>
-      <div className='b'>
-        <a href='#'>Back to top</a>
-        <i class="fas fa-arrow-up"></i>
+      <div className='bt-top' onClick={scrollTop}>
+        <span id='bt-top-text'>Back to top</span>
+        <i className="fas fa-arrow-up"></i>
       </div>
     </div>
   )

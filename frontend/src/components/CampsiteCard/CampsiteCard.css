@@ -7,15 +7,17 @@
   position: relative;
   width: 365px;
   height: 364px;
-  background-color: blue;
+  background-image: url('https: //davidsuzuki.org/wp-content/uploads/2020/03/forest-walks.jpg');
+  filter: blur(50%);
   border-radius: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.212);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out 0s;
   /* transition: box-shadow 0.2s ease-in-out; */
 }
 
 .campsite-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.178);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.212);
   /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.178); */
 }
 

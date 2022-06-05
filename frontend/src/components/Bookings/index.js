@@ -17,7 +17,7 @@ const Bookings = () => {
 
   const bookings = totalBookings.filter(booking => booking?.userId == userId);
 
-  console.log(bookings, 'matched');
+
 
   // you will loop through all bookings to render each individual booking
 

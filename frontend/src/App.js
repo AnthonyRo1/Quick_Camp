@@ -13,8 +13,15 @@ import StartHosting from "./components/StartHosting";
 import CreateForm from "./components/CreateForm";
 import Bookings from "./components/Bookings";
 import {getBookings} from './store/bookings'
+import {useHistory} from 'react-router-dom';
+
 
 function App() {
+
+
+
+
+
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {

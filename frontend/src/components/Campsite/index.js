@@ -19,7 +19,9 @@ const Campsite = () => {
   
 
   
-    window.scrollTo(0, 0)
+ useEffect(() => {
+   window.scrollTo(0, 0)
+ }, [])
 
 
  
@@ -46,8 +48,6 @@ const Campsite = () => {
     if (index === 0) setIndex(img.length - 1);
     else setIndex(index - 1);
   }
-
-  console.log(index)
 
   // get current date + tomorrow's date 
   const today = new Date()
@@ -92,8 +92,34 @@ const Campsite = () => {
   const [displayPrice, setDisplayPrice] = useState(campsite?.pricePerNight);
   const [totalGuests, setTotalGuests] = useState(0);
 
-
+  const [adultsCount, setAdultsCount] = useState(1);
+  const [childsCount, setChildsCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(1);
   
+
+  const incAdults = () => {
+    setAdultsCount(adultsCount + 1);
+    setTotalCount(childsCount + adultsCount)
+  }
+
+  const decAdults = () => {
+    if (adultsCount === 0) return
+    setAdultsCount(adultsCount - 1);
+    setTotalCount(childsCount + adultsCount)
+  }
+
+
+  const incChilds = () => {
+    setChildsCount(childsCount + 1);
+    setTotalCount(childsCount + adultsCount)
+  }
+
+  const decChilds = () => {
+    if (childsCount === 0) return;
+    setChildsCount(childsCount - 1);
+    setTotalCount(childsCount + adultsCount)
+  }
+
 
   const updateCheckIn = (e) => {
     setCheckIn(convertDate(e.target.value));
@@ -266,27 +292,44 @@ const Campsite = () => {
           </div>
           <div className='cs-bc-guests'>
             <div className='bc-adults'>
-                <label id='label-ad'>Adults
+                <span id='adults-text'>adults</span>
+                <div className='adults-btns'>
+                  <div id='a-inc' onClick={incAdults}><i className="fas fa-plus" ></i></div>
+              <span id='a-num'>{adultsCount}</span>
+                  <div className={adultsCount > 0 ? 'btn-dec active-af' : 'btn-dec'} onClick={decAdults}><i className="fas fa-minus"></i></div>
+               </div>
+             
+                {/* <label id='label-ad'>Adults
                 <input 
                 type='number' 
                 id='guest-input-a'
                 value={numAdults}
                 onChange={updateAdults}
                 ></input>
-                </label>
+                </label> */}
+            </div>
+            <div id='guest-total-ac'>
+            <span id='gt-total'>total:</span>
+                <span id='gt-t'>{totalCount}</span>
             </div>
             <div className='bc-childs'>
-                <label id='label-c'>Children
+              <span id='childs-text'>childs</span>
+              <div className='childs-btns'>
+                  <div id='c-inc' onClick={incChilds}><i className="fas fa-plus"></i></div>
+              <span id='c-num'>{childsCount}</span>
+                  <div className={childsCount > 0 ? 'btn-dec active-cf' : 'btn-dec'} onClick={decChilds}><i className="fas fa-minus"></i></div>
+              </div>
+                {/* <label id='label-c'>Children
                 <input 
                 type='number' 
                 id='guest-input-c'
                 value={numChildren}
                 onChange={updateChildren}
                 ></input>
-                </label>
+                </label> */}
             </div>
           </div>
-          <span id='bc-ns-text'>Number of Nights Stay</span>
+          <span id='bc-ns-text'>Total Nights Stay</span>
           <div className='bc-nights-stay'>
             <div id='bc-ns-num-box'>
               <span id='bc-ns-num'>{totalDays}</span>

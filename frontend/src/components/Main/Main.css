@@ -70,6 +70,27 @@
   color: black;
 }
 
-.b > i {
+.bt-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 39px;
+  border: 2px solid black;
+  margin-top: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+#bt-top-text {
+  font-size: 22px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.bt-top > i {
+  font-size: 18px;
   color: black;
+  cursor: pointer;
 }

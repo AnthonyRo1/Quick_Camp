@@ -199,7 +199,7 @@ const CreateForm = () => {
       type='text' 
       name='image5' 
       placeholder='*Image Url'
-      value={image4}
+      value={image5}
       onChange={updateImage5}
       ></input>
 
