@@ -9,7 +9,7 @@ import BookingsButton from './bookingsbutton';
 import './Navigation.css';
 
 import HomeButton from './homebutton';
-function Navigation({ isLoaded }) {
+function Navigation({ isLoaded}) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -24,9 +24,8 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <NavLink className='top-nav near-me' to='/near-me'>Near Me</NavLink>
+
         <NavLink className='top-nav about' to='/about'>About</NavLink>
-        <NavLink className='top-nav earn-cash' to='/earn-cash'>Earn Camp Cash</NavLink>
         <NavLink className='top-nav login' to="/login">Log In</NavLink>
         <NavLink className='top-nav signup' to="/signup">Sign Up</NavLink>
         <div className='host-bg'>

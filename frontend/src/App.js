@@ -23,9 +23,10 @@ function App() {
     dispatch(getBookings());
   }, [dispatch]);
 
+
   return (
     <>
-      <Navigation className='nav-bar' isLoaded={isLoaded} />
+      <Navigation className='nav-bar' isLoaded={isLoaded}/>
       {isLoaded && (
         <Switch>
           <Route path='/' exact>

@@ -30,6 +30,9 @@ function StartHosting() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
+
+
+
       return dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {
           const data = await res.json();
@@ -44,13 +47,17 @@ function StartHosting() {
   return (
 
     <div className={form ? 'host-form active-y' : 'host-form'} >
+      <div className='hf-title-text'>
+        <span id='hf-t-span'>Sign up and start hosting!</span>
+      </div>
      <form onSubmit={handleSubmit} className='hf-form'>
-      <ul>
+       { errors.length > 0 && 
+      <ul className='errors-start-hosting'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
+          }
       <div className="hf-wrapper email-input">
-        <label for='email'>
-        Email
+        <span>Enter Your Email</span>
         <input
           className='hf-email'
           type="text"
@@ -59,12 +66,9 @@ function StartHosting() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        </label>
       </div>
-
         <div className="hf-wrapper user-input">
-        <label for='username'></label>
-        Username
+          <span>Enter Your Username</span>
         <input
           className='hf-user'
           type="text"
@@ -74,10 +78,8 @@ function StartHosting() {
           required
         />
       </div>
-
         <div className="hf-wrapper ps-input">
-        <label for='password'></label>
-        Password
+          <span>Enter Your Password</span>
         <input
           className='hf-ps'
           type="password"
@@ -88,8 +90,7 @@ function StartHosting() {
         />
       </div>
         <div className="hf-wrapper c-ps-input">
-          <label for='confirm-ps'></label>
-        Confirm Password
+          <span>Confirm Your Password</span>
         <input
           className='hf-c-ps'
           name='confirm-ps'
@@ -99,7 +100,7 @@ function StartHosting() {
           required
         />
       </div>
-      <button type="submit">Sign Up</button>
+      <button id='start-hosting-sbmt' type="submit">Sign Up</button>
      </form>
     </div>
 

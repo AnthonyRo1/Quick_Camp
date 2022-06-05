@@ -72,3 +72,13 @@ body {
   color: #da451b;
   border: 1px solid #da451b;
 }
+
+.errors-val {
+    position: absolute;
+    left: 0%;
+    width: 480px;
+}
+
+.errors-val > li {
+  margin-bottom: 15px;
+}

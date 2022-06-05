@@ -77,7 +77,11 @@
   color: white;
   font-size: 18px;
   font-weight: 500;
-  
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.hosting:hover {
+  color: #02c587;
 }
 
 .host-bg {
@@ -88,6 +92,13 @@
   border-radius: 24px;
   justify-content: center;
   align-items: center;
+  transition: all 0.2 ease-in-out 0s;
+}
+
+.host-bg:hover {
+  color: #02c587;
+  border: 2px solid #02c587;
+  background-color: white;
 }
 
 /* WHEN THE USER IS LOGGED IN CSS */
@@ -149,16 +160,99 @@ transition: all 0.2s ease-in-out 0s;
 
 .pd-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: -50%;
-  top: 5%;
+  right: -30%;
+  top: 28%;
 }
 
 
 .nav-link-bk {
   text-decoration: none;
   margin: 0 auto;
+}
+
+.pd-btn {
+  background: linear-gradient(rgb(199, 126, 30), rgb(214, 160, 88));;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: 2px solid white;
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.356);
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.pd-btn:hover {
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.534);
+}
+
+.fa-user-circle {
+  font-size: 25px;
+  color: white;
+}
+
+.profile-dropdown {
+  list-style: none;
+  animation: slide-up 0.4s ease;
+  position: absolute;
+  top: 240%;
+  border: 2px solid rgb(199, 126, 30);
+  background-color: white;
+  padding-right: 23px;
+  border-radius: 10px;
+  height: 120px;
+}
+
+
+
+@keyframes slide-up {
+  0% {
+    margin-top: 50px;
+  }
+}
+
+
+.pd {
+  list-style: none;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 18px;
+  color: #333333;
+}
+
+.pd-text {
+  text-align: center;
+}
+
+.pd-email {
+  margin-right: 10px;
+}
+
+.lo-btn {
+  text-decoration: none;
+  list-style: none;
+  margin-bottom: 10px;
+  margin-left: 39px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background: linear-gradient(rgb(240, 165, 68), rgb(255, 186, 96));
+  color: white;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.158);
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.lo-btn:hover {
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.288);
+}
+
+.pd-name {
+  margin-right: 10px;
+  margin-top: 15px;
 }

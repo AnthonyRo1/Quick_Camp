@@ -28,48 +28,55 @@ function SignupFormPage() {
   };
 
   return (
+    <div className='signup-container'>
+        <span id='submit-title-text'>Sign up</span>
     <form onSubmit={handleSubmit} className='signup-form'>
-      <ul>
+    { errors.length > 0 && <ul className='errors-signup'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Email
+      </ul>}
+
+      <div className='su-i su-e-container'>
+        <span>Email</span>
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Username
+      </div>
+  
+      <div className='su-i su-u-container'>
+        <span>Username</span>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Password
+      </div>
+      
+      <div className='su-i su-p-container'>
+        <div>Password</div>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Confirm Password
+      </div>
+  
+      <div className='su-i su-cp-container'>
+        <span>Confirm Password</span>
         <input
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-      </label>
-      <button type="submit">Sign Up</button>
+      </div>
+      <button id='signup-submit' type="submit">Sign Up</button>
     </form>
+    </div>
   );
 }
 

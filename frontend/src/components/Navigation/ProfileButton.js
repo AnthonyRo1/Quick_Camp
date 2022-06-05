@@ -28,24 +28,25 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-    <Redirect to='/campsites' />
+    // <Redirect to='/campsites' />
     history.push('/')
   };
 
   return (
     <div className='pd-container'>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button className='pd-btn' onClick={openMenu}>
+        <i className="fas fa-user-circle " />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li className='pd pd-name'>{user.username}</li>
+          <li className='pd pd-email'>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className='lo-btn'onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}
+      <span id='pd-text'>Profile</span>
     </div>
   );
 }

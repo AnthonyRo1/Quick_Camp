@@ -1,34 +1,110 @@
+.errors-start-hosting {
+  padding: 15px;
+  height: 60px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(173, 54, 54);
+  position: absolute;
+  top: -25%;
+  border-radius: 10px;
+  text-decoration: none;
+}
 
+.errors-start-hosting > li {
+  text-decoration: none;
+  margin-bottom: 10px;
+  list-style: none;
+  font-size: 18px;
+}
 
 .host-form {
   background-color: white;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   position: relative;
   top: -10%;
   width: 500px;
   transition: transform 0.2s ease-in;
   height: 500px;
+  border-radius: 15px;
+  border: 2px solid rgb(12, 97, 255);
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.103);
+}
+
+
+.hf-title-text {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#hf-t-span {
+  text-align: center;
+  font-size: 20px;
 }
 
 .hf-form {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   margin: 0 auto;
-  width: 400px;
-  height: 400px;
+  width: 80%;
+  height: 80%;
 }
 
 
-.hf-form > input {
-  width: 200px;
+.hf-wrapper > input {
   height: 35px;
-}
 
+}
 
  .active-y {
   transform: translateY(50%)
 }
 
+
+.hf-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  width: 80%;
+  margin-bottom: 25px;
+}
+
+.hf-wrapper > span {
+  text-align: center;
+}
+
+.c-ps-input {
+  margin-bottom: 15px;
+}
+
+#start-hosting-sbmt {
+  width: 180px;
+  height: 35px;
+  background-color: rgb(12, 97, 255);
+  margin-top: 15px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  transition: all 0.2s ease-in-out 0s; 
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+#start-hosting-sbmt:hover {
+  color: rgb(12, 97, 255);
+  background-color: white;
+  border: 2px solid rgb(12, 97, 255);
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.116);
+}

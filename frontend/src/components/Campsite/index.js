@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
+import { getAllCampsites, getCampsites } from "../../store/campsites";
 import EditButton from "../EditCampsite/editbutton";
 import DeleteButton from "../EditCampsite/deletebutton";
 import {createBooking} from '../../store/bookings'
@@ -14,17 +15,35 @@ const Campsite = () => {
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser?.id;
   const campsite = campsites[id];
+  const [images, setImages] = useState([]);
 
-
+if (campsite !== undefined) {
+  console.log(campsite, 'campsite')
+console.log(campsite?.image1)
+  console.log(campsite?.image2, 'adf')
+  console.log(campsite?.image3, 'adf')
+  console.log(campsite?.image4, 'adsf')
+  console.log(campsite?.image5, 'asdf')
+}
   // images array 
-  let images = [];
-  if (campsite !== undefined) {
-    for (let i = 1; i <= 5; i++) {
-      if (campsite[`image${i}`] !== null) {
-        images.push(campsite[`image${i}`])
+  useEffect(() => {
+
+    let img = [];
+    
+    if (campsite?.userId) {
+      for (let i = 1; i <= 5; i++) {
+        if (campsite[`image${i}`] !== null) {
+          img.push(campsite[`image${i}`])
+        }
       }
     }
-  }
+
+    setImages(img);
+
+  }, [])
+
+
+  console.log(images)
   // images array 
 
 
@@ -157,12 +176,16 @@ const Campsite = () => {
       {/* Iterate over images */}
       <div className='cs-i-container'>
         <div className='cs-images'>
-            image here
-        </div>
-        <div className='cs-images'>
-
-        </div>
-        <div className='cs-images'>
+          { campsite !== undefined &&
+       
+             
+               
+              <div key={1}className='cs-images'
+              style={{
+                backgroundImage: `url(${campsite?.image1}`
+              }}
+              ></div>
+            }
         </div>
       </div>
       {/* Iterate over images */}

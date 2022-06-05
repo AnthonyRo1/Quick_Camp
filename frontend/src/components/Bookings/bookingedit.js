@@ -117,12 +117,15 @@ const BookingEdit = ({campsiteId, userId, id}) => {
   return (
       <>
       { form && <form className='booking-edit-form' onSubmit={handleSubmit}>
+        <div className='be-ci-input'>
         <span>Check in</span>
         <input 
         type='date'
         value={checkIn}
         onChange={updateCheckIn}
         ></input>
+        </div>
+        <div className='be-co-input'>
         <span>Check out</span>
         <input 
         type='date'
@@ -130,20 +133,25 @@ const BookingEdit = ({campsiteId, userId, id}) => {
         value={new Date(checkIn) >= new Date(checkout) ? setCheckout(dayAhead(checkout)) : checkout}
         onChange={updateCheckout}
         ></input>
+        </div>
+        <div className='be-adult-input'>
       <span>Adults</span>
         <input 
         type='number'
         value={numAdults}
         onChange={updateAdults}
         ></input>
+        </div>
+        <div className='be-child-input'>
         <span>Children</span>
         <input 
         type='number'
         value={numChildren}
         onChange={updateChildren}
         ></input>
-        <button type='submit'>Submit Changes</button>
-        <button type='button' onClick={toggleForm}>Cancel</button>
+        </div>
+        <button id='bf-edit' type='submit'>Submit Changes</button>
+        <button id='bf-cancel' type='button' onClick={toggleForm}>Cancel</button>
       </form>}
     </>
   )

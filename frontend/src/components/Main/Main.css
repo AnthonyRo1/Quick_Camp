@@ -1,5 +1,6 @@
 .main-entire {
   margin-top: 15%;
+  margin-bottom: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,4 +19,12 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+}
+
+.fa-arrow-up {
+  color: black;
+}
+
+.b > i {
+  color: black;
 }

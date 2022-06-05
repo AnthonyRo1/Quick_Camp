@@ -14,11 +14,11 @@ const CreateForm = () => {
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
   const [state, setStateName] = useState('');
-  const [image1, setImage1] = useState(null);
-  const [image2, setImage2] = useState(null);
-  const [image3, setImage3] = useState(null);
-  const [image4, setImage4] = useState(null);
-  const [image5, setImage5] = useState(null);
+  const [image1, setImage1] = useState('');
+  const [image2, setImage2] = useState('');
+  const [image3, setImage3] = useState('');
+  const [image4, setImage4] = useState('');
+  const [image5, setImage5] = useState('');
   const [description, setDescription] = useState('');
   const [guestsAllowed, setGuestsAllowed] = useState(0);
   const [pricePerNight, setPricePerNight] = useState(1)
@@ -40,10 +40,32 @@ const CreateForm = () => {
 
   const [errors, setErrors] = useState([]);
 
-  // useEffect(() => {
+  useEffect(() => {
+  const images = [image1, image2, image3, image4, image5];
+  const allImages = images.filter(image => image.length <= 0);
 
+  const errors = [];
 
-  // }, [name, city, state, image1, image2, image3, image4, image5])
+  if (name.length < 2) {
+    errors.push('Name must be longer than 2 characters')
+  } else if (name.length > 30) {
+    errors.push('Name must be less than 30 characters');
+  }
+
+  if (city.length <= 2 || city.length >= 45) {
+    errors.push('City name must be no longer than 45 characters and greater than 2 characters.')
+  }
+
+  if (state.length <= 2 || state.length >= 45) {
+    errors.push('State name must be no longer than 45 characters and greater than 2 characters.')
+  }
+  if (allImages.length <= 0) {
+    errors.push('Your Campsite must have at least 1 image.')
+  }
+
+  setErrors(errors);
+
+  }, [name, city, state, image1, image2, image3, image4, image5])
 
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id;
@@ -85,7 +107,13 @@ const CreateForm = () => {
 
   return (
     <div className='create-form-container' >
-      {errs}
+      <ul className='errors-val'>
+      {
+       errors.length && errors.map((error, i) => (
+          <li>{error}</li>
+        ))
+      }
+      </ul>
     <form className='cs-create-form' onSubmit={handleSubmit}>
       <span id='cs-cf-text'>Sign up for free and start hosting!</span>
 

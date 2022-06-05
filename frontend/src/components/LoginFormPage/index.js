@@ -13,7 +13,13 @@ function LoginFormPage() {
   if (sessionUser) return (
     <Redirect to="/" />
   );
-
+  // error handlers:
+  /*
+  must enter email or password 
+  must enter password 
+  must enter a valid email 
+  must enter a valid password 
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -25,30 +31,34 @@ function LoginFormPage() {
   }
 
   return (
+    <div className='login-container'>
+      <span id='login-title-text'>Log in</span>
     <form onSubmit={handleSubmit} className='login-form'>
-      <ul>
+     { errors.length > 0 &&
+      <ul className='errors-login'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email
+      </ul>}
+        <div className='lc-i lc-eu-container'>
+         <span>Username or Email</span>
         <input
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Password
+        </div>
+        <div className='lc-i lc-pi-container'>
+        <span>Password</span>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
-      <button type="submit">Log In</button>
+      </div>
+      <button id='login-submit'type="submit">Log In</button>
     </form>
+    </div>
   );
 }
 
