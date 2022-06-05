@@ -18,9 +18,9 @@ const Campsite = () => {
   const [index, setIndex] = useState(0);
   
 
-  useEffect(() => {
+  
     window.scrollTo(0, 0)
-  })
+
 
  
 
