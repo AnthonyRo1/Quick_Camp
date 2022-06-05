@@ -11,7 +11,7 @@
   background-color: rgb(211, 203, 173);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 80px;
   width: 90%;
   padding: 20px;
@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: row; 
   justify-content: center;
-  width: 100%
+  width: 94%
 }
 
 .mf-form > input{
@@ -73,6 +73,7 @@
 .mf-dropdown {
   height: 48px;
   background-color: white;
+  width: 270px;
 }
 
 .dd-container {
@@ -83,6 +84,22 @@
   align-items: center;
 }
 
+.fa-user {
+  margin-right: 15px;
+}
+
+#dd-text {
+  margin-left: 10px;
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.fa-angle-down {
+  font-size: 25px;
+  margin-left: 90px;
+  margin-top: 3px;
+
+}
 .where-to {
   display: flex;
   flex-direction: column;
@@ -94,6 +111,89 @@
   flex-direction: column;
 }
 
+.mf-search {
+  position: absolute;
+  left: 74%;
+  top: 56%;
+  
+}
+
+#mf-btn-search {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(0, 197, 133);
+  border: none;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.158);
+  transition: all 0.2s ease-in-out 0s;
+  cursor: pointer;
+}
+
+#mf-btn-search:hover {
+  background-color: white;
+  border: 2px solid rgb(0, 197, 133);
+  color: rgb(0, 197, 133);
+}
+
+.fa-search {
+  font-size: 16px;
+  color: white;
+  transition: all 0.2s ease-in-out 0s;
+  cursor: pointer;
+
+}
+
+.fa-search:hover {
+  font-size: 16px;
+  color: rgb(0, 197, 133);
+}
+
+.dd-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 10.5%;
+  left: 58%;
+  width: 340px;
+  height: 250px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.dd-i {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  border: 2px solid black;
+}
+
+.dd-i-text {
+  margin-left: 15px;
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+
+
+.dd-i-minus {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+}
+
+.dd-pm {
+  display: flex;
+  flex-direction: row;
+}
+
+.dd-i-plus {
+  margin-left: 100px;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+}
 
 .mf-image {
     border-radius: 24px;
@@ -103,4 +203,5 @@
     position: relative;
     top: -60px;
     overflow: hidden;
+    box-shadow: -3px 7px 13px 0px rgb(0 0 0 / 27%);
 }

@@ -15,37 +15,39 @@ const Campsite = () => {
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser?.id;
   const campsite = campsites[id];
-  const [images, setImages] = useState([]);
+  const [index, setIndex] = useState(0);
+  
 
-if (campsite !== undefined) {
-  console.log(campsite, 'campsite')
-console.log(campsite?.image1)
-  console.log(campsite?.image2, 'adf')
-  console.log(campsite?.image3, 'adf')
-  console.log(campsite?.image4, 'adsf')
-  console.log(campsite?.image5, 'asdf')
-}
-  // images array 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  })
 
-    let img = [];
-    
-    if (campsite?.userId) {
-      for (let i = 1; i <= 5; i++) {
-        if (campsite[`image${i}`] !== null) {
-          img.push(campsite[`image${i}`])
-        }
-      }
-    }
+ 
 
-    setImages(img);
+  let img = [];
+  if (campsite !== null) {
+    img = [campsite?.image1, campsite?.image2, campsite?.image3, campsite?.image4, campsite?.image5];
 
-  }, [])
+    img = img.filter(eachImage => eachImage);
+  }
 
+  
 
-  console.log(images)
-  // images array 
+// if you hit the right button, index + 1;
+// if you hit the left button, index + 2;
+// if the index hits array.length - 1 && user click right then set index to 0 > vice versa for index 0; 
 
+  const scrollRight = () => {
+    if (index === img.length - 1) setIndex(0);
+    else setIndex(index + 1);
+  }
+
+  const scrollLeft = () => {
+    if (index === 0) setIndex(img.length - 1);
+    else setIndex(index - 1);
+  }
+
+  console.log(index)
 
   // get current date + tomorrow's date 
   const today = new Date()
@@ -174,20 +176,29 @@ console.log(campsite?.image1)
 
 
       {/* Iterate over images */}
+      <div className='scroll-left' onClick={scrollLeft}><i className="fas fa-arrow-left"></i></div>
       <div className='cs-i-container'>
-        <div className='cs-images'>
-          { campsite !== undefined &&
+        <div className='cs-images'
+        style={{
+          backgroundImage: `url(${img[index]})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+        ></div>
+          {/* { campsite !== undefined &&
        
              
-               
+               img.map(img => (
               <div key={1}className='cs-images'
               style={{
-                backgroundImage: `url(${campsite?.image1}`
+                backgroundImage: `url(${img}`
               }}
               ></div>
-            }
-        </div>
+               ))
+            } */}
+          
       </div>
+      <div className='scroll-right' onClick={scrollRight}><i className="fas fa-arrow-right" ></i></div>
       {/* Iterate over images */}
 
 

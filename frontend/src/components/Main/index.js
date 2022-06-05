@@ -10,8 +10,16 @@ const Main = () => {
   const allSites = Object.values(campsites);
   return (
       <div className='main-entire'>
+        <div className='motto-container'>
+          <div id="#"></div>
+          <span id='motto-text'>Explore The Outdoors.</span>
+          <span id='motto-under'>Discover campsites near you today.</span>
+        </div>
         <div className='mf-container'>
       <MainForm />
+      </div>
+      <div id='all-cs-title'>
+        <span id='all-cs-text'>Discover Campsites Available Now.</span>
       </div>
       <div className='main-home'>
         {
@@ -21,6 +29,8 @@ const Main = () => {
         }
       </div>
       <div className='b'>
+        <a href='#'>Back to top</a>
+        <i class="fas fa-arrow-up"></i>
       </div>
     </div>
   )

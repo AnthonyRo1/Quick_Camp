@@ -6,6 +6,57 @@
   height: 100px;
 }
 
+.cs-i-container {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.scroll-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 62.9%;
+  background-color: rgb(180, 180, 180);
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 4px solid rgb(168, 168, 168);
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.363);
+  transition: all 0.2s ease-in-out 0s;
+  cursor: pointer;
+} 
+
+.scroll-left:hover {
+  width: 60px;
+  height: 60px;
+}
+
+.scroll-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 62.9%;
+  background-color: rgb(180, 180, 180);
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 4px solid rgb(168, 168, 168);
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.363);
+  transition: all 0.2s ease-in-out 0s;
+  cursor: pointer;
+}
+
+.scroll-right:hover {
+  width: 60px;
+  height: 60px;
+}
+
 .cs-container {
   margin-top: 8%;
   display: flex;
@@ -15,14 +66,15 @@
   /* height: 100%; */
   /* width: 100%; */
 }
-.cs-i-container {
-  display: flex;
-  flex-direction: row;
 
-}
 .cs-images {
   width: 500px;
   height: 500px;
+  background-color: blue;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.541);
+  border: 2px solid rgb(85, 143, 85);
   
 }
 
