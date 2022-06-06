@@ -26,11 +26,13 @@ const Campsite = () => {
 
   // reviews + username / id 
   const reviews = useSelector(state => state.reviews);
-  const allReviews = Object.values(reviews)
-  const campsiteReviews = allReviews.filter(review => review.campsiteId === campsite?.id);
+  const allReviews = Object.values(reviews).reverse();
+  const campsiteReviews = allReviews.filter(review => review?.campsiteId === campsite?.id);
 
 
-  
+  const redirectSignup = () => {
+    history.push('/signup');
+  }
 
 
   const [index, setIndex] = useState(0);
@@ -39,16 +41,23 @@ const Campsite = () => {
   const [host, setHost] = useState(null);
 
 
+
+
  useEffect(() => {
    window.scrollTo(0, 0)
 
-   const fetchData = async() => {
-     const res = await csrfFetch(`/api/session/${camperId}`)
-     const data = await res.json();
-     setHost(data);
+   if (campsite?.userId !== undefined) {
+     console.log(campsite?.userId, "SUEURUREUUREUR")
+     const fetchData = async () => {
+       const res = await csrfFetch(`/api/session/${campsite?.userId}`)
+       const data = await res.json();
+       setHost(data);
+     }
+
+     fetchData().catch(error => console.log(error))
+
    }
 
-   fetchData().catch(error => console.log(error))
 
  }, [])
 
@@ -121,32 +130,36 @@ const Campsite = () => {
   const [displayPrice, setDisplayPrice] = useState(campsite?.pricePerNight);
   const [totalGuests, setTotalGuests] = useState(0);
 
-  const [adultsCount, setAdultsCount] = useState(1);
+  const [adultsCount, setAdultsCount] = useState(0);
   const [childsCount, setChildsCount] = useState(0);
-  const [totalCount, setTotalCount] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
   
 
   const incAdults = () => {
     setAdultsCount(adultsCount + 1);
-    setTotalCount(childsCount + adultsCount)
+    
   }
 
   const decAdults = () => {
-    if (adultsCount === 0) return
+    if (adultsCount === 1 || adultsCount === 0){
+      return;
+    }
     setAdultsCount(adultsCount - 1);
-    setTotalCount(childsCount + adultsCount)
+    
   }
 
 
   const incChilds = () => {
     setChildsCount(childsCount + 1);
-    setTotalCount(childsCount + adultsCount)
+    
   }
 
   const decChilds = () => {
-    if (childsCount === 0) return;
+    if (childsCount === 0) {
+       return;
+      }
     setChildsCount(childsCount - 1);
-    setTotalCount(childsCount + adultsCount)
+    
   }
 
 
@@ -173,12 +186,16 @@ const Campsite = () => {
   }, [updateAdults, updateChildren, updateCheckIn, updateCheckout])
 
   
-
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
+
+    setTotalCount(childsCount + adultsCount);
+    let err = [];
+
+    let totalGuests = childsCount + adultsCount;
     let checkOut = checkout;
     let campsiteId = id;
     const payload = {
@@ -190,10 +207,13 @@ const Campsite = () => {
       totalCost,
     }
 
+
+
+
     let createdBooking;
 
-    createdBooking = await dispatch(createBooking(payload))
-    history.push('/bookings')
+      createdBooking = await dispatch(createBooking(payload))
+      history.push('/bookings')
   }
 
 
@@ -255,7 +275,11 @@ const Campsite = () => {
       </div>
       <div className='scroll-right' onClick={scrollRight}><i className="fas fa-arrow-right" ></i></div>
       {/* Iterate over images */}
-
+            { errors.length > 0 &&
+              <div className='bk-err'>
+                <span>{errors[0]}</span>
+              </div>
+            }
 
       {/* Lower Content (reviews + booking form) */}
       <div className="cs-lower">
@@ -273,7 +297,7 @@ const Campsite = () => {
              </div>
              <div id='cs-hosted-by'>
                 <span id='hb-text'>Hosted by:</span>
-                <span id='hb-name'>{host && host.username}</span>
+                <span id='hb-name'>{host?.username}</span>
              </div>
              <div id='cs-desc'>
               <span id='cs-desc-text'>{campsite?.description}</span>
@@ -282,14 +306,17 @@ const Campsite = () => {
          </div>    
          {/* REVIEWS GO HERE REVIEWS REVIEWS REVIEWS  */}
          <div className='review-container'>
+           { sessionUser && 
            <div className='review-info'>
-             <div className='ri-count'>X reviews..</div>
+             <div className='ri-count'>{allReviews.length} reviews..</div>
              <AddReview campsiteId={campsite?.id} userId={userId}/>
            </div>
+          }
             {/* Iterate over all reviews */}
             {
               campsiteReviews.map((review, i) => (
-                <Review key={i} review={review?.review} date={review?.createdAt} userId={review?.userId}/>
+                <Review key={i} review={review?.review} date={review?.createdAt} userId={review?.userId}
+                reviewId={review?.id} campsiteId={campsite?.id}/>
               ))
               
             }
@@ -298,12 +325,10 @@ const Campsite = () => {
          </div>
         </div>
         {/* Lower Content (reviews + booking form) */}
-
-
-
+            
         {/* BOOKINGS FORM */}
-        <div className='cs-booking-div'>
-        <form className='cs-book-container' onSubmit={handleSubmit}>
+      { sessionUser &&  <div className='cs-booking-div'>
+          <form className='cs-book-container' onSubmit={handleSubmit}>
           <div className='cs-bc-price'>
             <span id='bc-price'>${campsite?.pricePerNight}</span>
             <span id='bc-price-text'>Average per night</span>
@@ -355,7 +380,7 @@ const Campsite = () => {
             </div>
             <div id='guest-total-ac'>
             <span id='gt-total'>total:</span>
-                <span id='gt-t'>{totalCount}</span>
+                <span id='gt-t'>{childsCount + adultsCount}</span>
             </div>
             <div className='bc-childs'>
               <span id='childs-text'>childs</span>
@@ -388,7 +413,13 @@ const Campsite = () => {
             <button type='submit' id='bc-submit'>Quick Book</button>
           </div>
         </form>
+        </div> }
+       { !sessionUser && 
+        <div className='no-user'>
+            <span id='nu-text' onClick={redirectSignup}>Login Or Signup to Create a Booking</span>
+
         </div>
+}
         {/* BOOKINGS FORM END */}
       </div>
 

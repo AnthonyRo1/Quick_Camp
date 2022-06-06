@@ -15,7 +15,7 @@ const Main = () => {
     window.scrollTo(0, 0);
   }
   const campsites = useSelector(state => state.campsites)
-  const allSites = Object.values(campsites);
+  const allSites = Object.values(campsites).reverse();
   return (
       <div className='main-entire'>
         <div className='motto-container'>

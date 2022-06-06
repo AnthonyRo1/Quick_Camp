@@ -40,32 +40,14 @@ const CreateForm = () => {
 
   const [errors, setErrors] = useState([]);
 
-  useEffect(() => {
+
   const images = [image1, image2, image3, image4, image5];
   const allImages = images.filter(image => image.length > 0);
 
-  const errors = [];
 
-  if (name.length < 2) {
-    errors.push('Name must be longer than 2 characters')
-  } else if (name.length > 50) {
-    errors.push('Name must be less than 30 characters');
-  }
 
-  if (city.length <= 2 || city.length >= 45) {
-    errors.push('City name must be no longer than 45 characters and greater than 2 characters.')
-  }
 
-  if (state.length <= 2 || state.length >= 45) {
-    errors.push('State name must be no longer than 45 characters and greater than 2 characters.')
-  }
-  if (allImages.length <= 0) {
-    errors.push('Your Campsite must have at least 1 image.')
-  }
 
-  setErrors(errors);
-
-  }, [name, city, state, image1, image2, image3, image4, image5])
 
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id;
@@ -80,6 +62,29 @@ const CreateForm = () => {
 
     e.preventDefault();
 
+    const err = []
+    if (name.length < 5) {
+      err.push('Campsite Name must be longer than 5 characters')
+    } else if (name.length > 50) {
+      err.push('Name must be less than 50 characters');
+    }
+
+    if (city.length <= 2 || city.length >= 45) {
+      err.push('City name must be no longer than 45 characters and greater than 2 characters.')
+    }
+
+    if (state.length <= 2 || state.length >= 45) {
+      err.push('State name must be no longer than 45 characters and greater than 2 characters.')
+    }
+    if (allImages.length <= 0) {
+      err.push('Your Campsite must have at least 1 image.')
+    }
+
+    if (description.length < 5) {
+      err.push('Your campsite must have a description longer than 5 characters.')
+    }
+
+    setErrors(err);
     const payload = {
       name,
       description,
@@ -98,22 +103,28 @@ const CreateForm = () => {
 
 
     let createdCampsite;
-
-    
+    console.log(err)
+    if (err.length > 0) {
+      return;
+    } else {
       createdCampsite = await dispatch(createCampsite(payload));
       history.push(`/campsites/${createdCampsite.id}`);
+    }
 
+    console.log(errors);
   }
 
   return (
+
     <div className='create-form-container' >
-      <ul className='errors-val'>
-      {
-       errors.length && errors.map((error, i) => (
-          <li>{error}</li>
-        ))
-      }
-      </ul>
+
+{      errors.length > 0 && <div className='err-cntr'>
+        <ul>
+          { errors.map((error, i) => (
+            <li key={i}>{error}</li>
+          ))}
+        </ul>
+      </div>}
     <form className='cs-create-form' onSubmit={handleSubmit}>
       <span id='cs-cf-text'>Sign up for free and start hosting!</span>
 
@@ -148,6 +159,7 @@ const CreateForm = () => {
       <input 
       type='number' 
       name='guests-allowed' 
+      min='1'
       placeholder='*Number of Guests Allowed'
       value={guestsAllowed}
       onChange={updateGuestsAllowed}

@@ -72,8 +72,21 @@
   border: 1px solid #da451b;
 }
 
+.err-cntr {
+  z-index: 2;
+  position: absolute;
+  width: 500px;
+  height: 200px;
+  background-color: white;
+  left: 2%;
+  border-radius: 10px;
+  border: 2px solid red;
+}
+
 .errors-val {
+  z-index: 5;
     position: absolute;
+    top: 50%;
     left: 0%;
     width: 480px;
 }
