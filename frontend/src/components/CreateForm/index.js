@@ -48,7 +48,7 @@ const CreateForm = () => {
 
   if (name.length < 2) {
     errors.push('Name must be longer than 2 characters')
-  } else if (name.length > 30) {
+  } else if (name.length > 50) {
     errors.push('Name must be less than 30 characters');
   }
 
@@ -59,7 +59,7 @@ const CreateForm = () => {
   if (state.length <= 2 || state.length >= 45) {
     errors.push('State name must be no longer than 45 characters and greater than 2 characters.')
   }
-  if (allImages.length < 0) {
+  if (allImages.length <= 0) {
     errors.push('Your Campsite must have at least 1 image.')
   }
 

@@ -38,23 +38,19 @@ module.exports = {
       image1: {
         allowNull: false,
         type: Sequelize.STRING(350), // <--- campsite image (Must have at least one)
-        unique: true,
       },
       image2: {
         type: Sequelize.STRING(350),
-        unique: true,
       },
       image3: {
         type: Sequelize.STRING(350),
-        unique: true,
       },
       image4: {
         type: Sequelize.STRING(350),
-        unique: true,
+        
       },
       image5: {
         type: Sequelize.STRING(350),
-        unique: true,
       },
       userId: {
         allowNull: false,

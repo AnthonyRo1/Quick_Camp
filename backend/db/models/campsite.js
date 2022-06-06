@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Campsite.associate = function(models) {
     Campsite.hasMany(models.Review, {foreignKey: 'campsiteId', onDelete: 'cascade',hooks: true});
-    Campsite.hasMany(models.Booking, {foreignKey: 'campsiteId'});
+    Campsite.hasMany(models.Booking, {foreignKey: 'campsiteId', onDelete: 'cascade', hooks: true});
     Campsite.belongsTo(models.User, {foreignKey: 'userId'});
   };
   return Campsite;
