@@ -308,7 +308,7 @@ const Campsite = () => {
          <div className='review-container'>
            { sessionUser && 
            <div className='review-info'>
-             <div className='ri-count'>{allReviews.length} reviews..</div>
+             <div className='ri-count'>{campsiteReviews.length} reviews..</div>
              <AddReview campsiteId={campsite?.id} userId={userId}/>
            </div>
           }
