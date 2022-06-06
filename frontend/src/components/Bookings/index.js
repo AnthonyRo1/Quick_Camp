@@ -13,7 +13,7 @@ const Bookings = () => {
   const userId = user.id;
 
   
-  const totalBookings = Object.values(Allbookings);
+  const totalBookings = Object.values(Allbookings).reverse();
 
   const bookings = totalBookings.filter(booking => booking?.userId == userId);
 

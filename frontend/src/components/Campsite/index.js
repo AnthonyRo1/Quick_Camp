@@ -36,10 +36,8 @@ const Campsite = () => {
 
 
   const [index, setIndex] = useState(0);
-  
-
   const [host, setHost] = useState(null);
-
+  const [errors, setErrors] = useState([]);
 
 
 
@@ -141,9 +139,14 @@ const Campsite = () => {
   }
 
   const decAdults = () => {
-    if (adultsCount === 1 || adultsCount === 0){
-      return;
+    if (adultsCount === 1) {
     }
+    if (adultsCount === 1 || adultsCount === 0){
+      return
+    }
+
+
+
     setAdultsCount(adultsCount - 1);
     
   }
@@ -155,13 +158,17 @@ const Campsite = () => {
   }
 
   const decChilds = () => {
+    let err = [];
     if (childsCount === 0) {
-       return;
+      return;
       }
     setChildsCount(childsCount - 1);
     
   }
 
+  if (adultsCount === 1) {
+    console.log("HELLO")
+  }
 
   const updateCheckIn = (e) => {
     setCheckIn(convertDate(e.target.value));
@@ -186,13 +193,13 @@ const Campsite = () => {
   }, [updateAdults, updateChildren, updateCheckIn, updateCheckout])
 
   
-  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
 
     setTotalCount(childsCount + adultsCount);
+ 
     let err = [];
 
     let totalGuests = childsCount + adultsCount;
@@ -208,12 +215,17 @@ const Campsite = () => {
     }
 
 
-
-
+      setErrors(err);
     let createdBooking;
+    if ((adultsCount + childsCount) === 0) {
+      err.push('You must have at least one guest.')
+      setErrors(err);
+      return;
+    }  else {
+        createdBooking = await dispatch(createBooking(payload))
+        history.push('/bookings')
+      }
 
-      createdBooking = await dispatch(createBooking(payload))
-      history.push('/bookings')
   }
 
 
@@ -248,8 +260,6 @@ const Campsite = () => {
       </div>
       {/* Edit Form Container */}
 
-
-
       {/* Iterate over images */}
       <div className='scroll-left' onClick={scrollLeft}><i className="fas fa-arrow-left"></i></div>
       <div className='cs-i-container'>
@@ -275,11 +285,6 @@ const Campsite = () => {
       </div>
       <div className='scroll-right' onClick={scrollRight}><i className="fas fa-arrow-right" ></i></div>
       {/* Iterate over images */}
-            { errors.length > 0 &&
-              <div className='bk-err'>
-                <span>{errors[0]}</span>
-              </div>
-            }
 
       {/* Lower Content (reviews + booking form) */}
       <div className="cs-lower">
@@ -411,6 +416,7 @@ const Campsite = () => {
           <div className='cs-bc-submit'>
             <span id='finalize'>Finalize Your Stay</span>
             <button type='submit' id='bc-submit'>Quick Book</button>
+            {errors.length > 0 && <div id='bk-i-err'>{errors[0]}</div>}
           </div>
         </form>
         </div> }
