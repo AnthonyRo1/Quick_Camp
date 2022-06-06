@@ -94,3 +94,13 @@
   color: black;
   cursor: pointer;
 }
+
+#git-cntr {
+  margin-top: 25px;
+  margin-left: 15px;
+}
+#link-github {
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+}

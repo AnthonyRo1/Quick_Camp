@@ -40,6 +40,9 @@ const Main = () => {
         <span id='bt-top-text'>Back to top</span>
         <i className="fas fa-arrow-up"></i>
       </div>
+      <div id='git-cntr'>
+        <a id='link-github' href='https://github.com/AnthonyRo1/Quick_Camp'>Visit My Github</a>
+      </div>
     </div>
   )
 }
