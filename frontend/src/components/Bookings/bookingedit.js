@@ -59,6 +59,8 @@ const BookingEdit = ({campsiteId, userId, id}) => {
   const [numAdults, setNumAdults] = useState('');
   const [numChildren, setNumChildren] = useState('');
   const [totalCost, setTotalPrice] = useState(0)
+  const [errors, setErrors] = useState([]);
+
   // const [totalDays, setTotalDays] = useState(1);
   // const [displayPrice, setDisplayPrice] = useState(campsite?.pricePerNight);
   const [totalGuests, setTotalGuests] = useState(0);
@@ -107,7 +109,13 @@ const BookingEdit = ({campsiteId, userId, id}) => {
       campsiteId,
       totalCost
     }
-    console.log(payload)
+      let err = [];
+
+      if (totalGuests === 0) {
+        err.push('You must have at least one guest.')
+        setErrors(err);
+        return;
+      }
       dispatch(updateBooking(id, payload))
       setForm(!form);
   }
@@ -152,6 +160,7 @@ const BookingEdit = ({campsiteId, userId, id}) => {
         </div>
         <button id='bf-edit' type='submit'>Submit Changes</button>
         <button id='bf-cancel' type='button' onClick={toggleForm}>Cancel</button>
+        {errors.length > 0 && <div id='ed-bk-err'>{errors[0]}</div>}
       </form>}
     </>
   )

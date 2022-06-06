@@ -25,7 +25,7 @@ const AddReview = ({campsiteId, userId}) => {
 
       let createdReview;
 
-      createdReview = dispatch(createReview(payload))
+      createdReview = await dispatch(createReview(payload))
       setReview('');
   }
 

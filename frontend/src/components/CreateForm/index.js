@@ -62,7 +62,7 @@ const CreateForm = () => {
 
     e.preventDefault();
 
-    const err = []
+    let err = []
     if (name.length < 5) {
       err.push('Campsite Name must be longer than 5 characters')
     } else if (name.length > 50) {

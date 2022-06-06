@@ -70,6 +70,7 @@ const [newReview, setNewReview] = useState('');
           return 
       } else {
         const editedReview = await dispatch(editReview(reviewId, payload))
+        history.push(`campsites/${campsiteId}`)
         setNewReview('');
         toggleForm(!form);
       }
@@ -105,7 +106,7 @@ const [newReview, setNewReview] = useState('');
       <div className='ri-r-cntr'>
         <span id='ri-r-review'>{review}</span>
         <span id='ri-r-date'>{newDate}</span>
-        { seshId === user?.id &&
+        { seshId == user?.id &&
         <div id='rev-edit-container'>
         <button id='rev-edit' onClick={toggleForm}>edit</button>
         <button id='rev-delete' onClick={deleteReview}>delete</button>

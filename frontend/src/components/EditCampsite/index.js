@@ -31,7 +31,7 @@ const EditCampsite = ({id}) => {
   const [description, setDescription] = useState(campsite.description);
   const [guestsAllowed, setGuestsAllowed] = useState(campsite.guestsAllowed);
   const [pricePerNight, setPricePerNight] = useState(campsite.pricePerNight)
-  const [errors, setErrors] = useState([]);
+  
 
 
   const updateName = (e) => setName(e.target.value);
@@ -46,6 +46,9 @@ const EditCampsite = ({id}) => {
   const updateImage5 = (e) => setImage5(e.target.value);
   const updateDescription = (e) => setDescription(e.target.value);
 
+  const [errors, setErrors] = useState([]);
+
+
 
 
   
@@ -55,6 +58,34 @@ const EditCampsite = ({id}) => {
   const totalRating = null;
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+
+    const images = [image1, image2, image3, image4, image5];
+    const noNull = images.map(image => image === null ? '' : image);
+    const allImages = noNull.filter(image => image.length > 0);
+
+    let err = []
+    if (name.length < 5) {
+      err.push('Campsite Name must be longer than 5 characters')
+    } else if (name.length > 50) {
+      err.push('Name must be less than 50 characters');
+    }
+
+    if (city.length <= 2 || city.length >= 45) {
+      err.push('City name must be no longer than 45 characters and greater than 2 characters.')
+    }
+
+    if (state.length <= 2 || state.length >= 45) {
+      err.push('State name must be no longer than 45 characters and greater than 2 characters.')
+    }
+    if (allImages.length <= 0) {
+      err.push('Your Campsite must have at least 1 image.')
+    }
+
+    if (description.length < 5) {
+      err.push('Your campsite must have a description longer than 5 characters.')
+    }
+
 
     const payload = {
       name,
@@ -75,10 +106,15 @@ const EditCampsite = ({id}) => {
 
     let updatedCampsite;
 
+    if (err.length > 0) {
+      setErrors(err);
+      return 
+    } else {
+      updatedCampsite = await dispatch(editCampsite(id, payload));
+      history.push(`/campsites/${updatedCampsite.id}`);
+      hideForm();
+    }
 
-    updatedCampsite = await dispatch(editCampsite(id, payload));
-    history.push(`/campsites/${updatedCampsite.id}`);
-    hideForm();
   }
 
 
@@ -173,6 +209,17 @@ const EditCampsite = ({id}) => {
       type='submit'
       id='ef-submit-btn'
       >Submit Changes</button>
+      {errors.length > 0 && 
+        <ul
+        id='err'
+        >
+          {
+            errors.map((error, i) => (
+              <li key={i}>{error}</li>
+            ))
+          }
+        </ul>
+      }
     </form>
   </div> }
     </>

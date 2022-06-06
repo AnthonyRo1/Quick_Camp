@@ -231,3 +231,12 @@
 #bf-cancel:hover {
 box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.137);
 }
+
+#ed-bk-err {
+  position: absolute;
+  top: 110%;
+  background-color: white;
+  padding: 15px;
+  border: 2px solid red;
+  border-radius: 5px;
+}
