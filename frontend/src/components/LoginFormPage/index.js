@@ -10,6 +10,18 @@ function LoginFormPage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
+  const demoName = 'Demo';
+  const demoPassword = 'password';
+
+
+  const [username, setUsername] = useState('');
+  const [passwordState, setPasswordState] = useState('');
+
+
+
+
+
+
   if (sessionUser) return (
     <Redirect to="/" />
   );
@@ -28,6 +40,11 @@ function LoginFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+  }
+
+  const handleDemo = (e) => {
+    setCredential(demoName);
+    setPassword(demoPassword);
   }
 
   return (
@@ -57,6 +74,7 @@ function LoginFormPage() {
         />
       </div>
       <button id='login-submit'type="submit">Log In</button>
+      <button id='login-demo' type='' onClick={handleDemo}>Demo</button>
     </form>
     </div>
   );

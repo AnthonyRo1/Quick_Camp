@@ -20,7 +20,7 @@ function StartHosting() {
     setForm(true);
   }, [])
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/new" />;
 
 
 

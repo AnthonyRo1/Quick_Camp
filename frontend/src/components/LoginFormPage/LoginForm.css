@@ -90,6 +90,8 @@
   font-size: 18px;
   color: white;
   background-color: #f58337;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.178);
+  cursor: pointer;
   transition: all 0.2s ease-in-out 0s;
 }
 
@@ -97,4 +99,24 @@
   background-color: white;
   border: 2px solid #f58337;
   color: #f58337;
+}
+
+#login-demo {
+  width: 50%;
+  height: 35px;
+  background-color: rgb(41, 133, 207);
+  border-radius: 5px;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.178);
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+#login-demo:hover {
+  color:  rgb(41, 133, 207);
+  border: 2px solid white;
+  background-color: white;
+  border-color:rgb(41, 133, 207);
 }
