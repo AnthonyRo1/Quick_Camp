@@ -30,8 +30,6 @@ router.put('/:id', asyncHandler( async(req, res) => {
 
   const booking = await Booking.findByPk(id);
   await booking.update(req.body);
-
-  console.log(booking)
   return res.json(booking);
 }));
 

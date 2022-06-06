@@ -22,8 +22,8 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.put('/:id', asyncHandler(async (req, res) => {
   const id = Number(req.params['id']);
-  console.log(id);
-  const review = await Campsite.findByPk(id);
+  
+  const review = await Review.findByPk(id);
 
   await review.update(req.body);
 

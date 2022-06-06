@@ -12,9 +12,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(255)
       },
-      rating: {
-        type: Sequelize.INTEGER
-      },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
