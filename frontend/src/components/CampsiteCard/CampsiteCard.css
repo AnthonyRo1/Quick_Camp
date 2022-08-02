@@ -5,8 +5,8 @@
 .campsite-card {
   margin: 0 auto;
   position: relative;
-  width: 365px;
-  height: 364px;
+  width: 100%;
+  height: 35vh;
   background-image: url('https: //davidsuzuki.org/wp-content/uploads/2020/03/forest-walks.jpg');
   filter: blur(50%);
   border-radius: 20px;

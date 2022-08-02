@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 1200px;
+  width: 1248px;
 
 }
 
@@ -12,12 +12,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
-  width: 90%;
-  padding: 20px;
+  height: 118px;
+  width: 100%;
   border-radius: 60px;
-  padding-left: 48px;
-  padding-right: 48px;
   -webkit-box-align: center;
   border-color: rgb(229, 234, 223);
   box-shadow:  0px 2px 4px 0px rgb(0 0 0 / 8%);
@@ -26,8 +23,10 @@
 .mf-form {
   display: flex;
   flex-direction: row; 
-  justify-content: center;
-  width: 94%
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .mf-form > input{
@@ -46,42 +45,45 @@
     margin-bottom: 5px;
 }
 .mf-input {
-  margin-right: 25px;
-  border-radius: 24px;
-  outline: none;
-  border: 0px solid transparent;
-  padding: 0px;
-  width: 300px;
+    border-radius: 24px;
+    outline: none;
+    border: 0px solid transparent;
+    padding: 0px px;
+    padding-inline: 20px;
+    width: 92%;
 }
 
 
 .mf-text {
- padding-left: 10px;
  height: 48px;
- width: 300px;
 }
 
 
 .mf-date {
- padding-left: 10px;
- height: 48px;
+    height: 48px;
+    width: 92%;
+    padding-inline: 15px;
 }
 .dd-input {
   display: flex;
   flex-direction: column;
+  width: 20%;
 }
 .mf-dropdown {
   height: 48px;
   background-color: white;
-  width: 270px;
+  width: 83%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dd-container {
-  padding-top: 15px;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .fa-user {
@@ -89,35 +91,34 @@
 }
 
 #dd-text {
-  margin-left: 10px;
-  margin-top: 6px;
   font-size: 18px;
   cursor: pointer;
 }
 
 .fa-angle-down {
   font-size: 25px;
-  margin-left: 90px;
-  margin-top: 3px;
   cursor: pointer;
 
 }
 .where-to {
   display: flex;
   flex-direction: column;
+  width: 32%;
 }
 
 
 .date-input {
   display: flex;
   flex-direction: column;
+  width: 25%;
 }
 
 .mf-search {
-  position: absolute;
-  left: 74%;
-  top: 56%;
-  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #mf-btn-search {
@@ -129,12 +130,18 @@
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.158);
   transition: all 0.2s ease-in-out 0s;
   cursor: pointer;
+  position: relative;
+  top: 7%;
+  right: 10%;
 }
 
 #mf-btn-search:hover {
   background-color: white;
   border: 2px solid rgb(0, 197, 133);
-  color: rgb(0, 197, 133);
+}
+
+#mf-btn-search:hover .fa-search {
+  color: rgb(0, 197, 133);;
 }
 
 .fa-search {
@@ -151,12 +158,11 @@
 }
 
 .dd-show {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  position: absolute;
   bottom: 10.5%;
-  left: 58%;
   width: 340px;
   height: 250px;
   background-color: white;
