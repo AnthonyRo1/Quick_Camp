@@ -1,5 +1,5 @@
 .main-entire {
-  margin-top: 180px;
+  margin-top: 140px;
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
@@ -35,10 +35,9 @@
 }
 
 #motto-text {
-  font-size: 72px;
-  line-height: 80px;
+  font-size: 65px;
   letter-spacing: 0px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
   font-family: Calibre, Helvetica, Arial, sans-serif;
   color: rgb(40, 64, 12)
@@ -118,6 +117,10 @@
     width: 80vw;
   }
 
+  #all-cs-title {
+    width: 80vw;
+  }
+
 }
 
 
@@ -137,6 +140,16 @@
     width: 80%;
     display: flex;
     flex-direction: column;
+  }
+
+
+  #motto-text {
+    font-size: 48px;
+  }
+
+  #motto-under {
+    font-size: 18px;
+    margin-bottom: 10px;
   }
 
 }
