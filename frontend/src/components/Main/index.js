@@ -24,17 +24,19 @@ const Main = () => {
           <span id='motto-under'>Discover campsites near you today.</span>
         </div>
         <div className='mf-container'>
-      <MainForm />
-      </div>
-      <div id='all-cs-title'>
-        <span id='all-cs-text'>Discover Campsites Available Now.</span>
-      </div>
-      <div className='main-home'>
-        {
-          allSites.map((data, i) => (
-            <CampsiteCard key={i} city={data.city} state={data.state} image={data.image1} id={data.id}/>
-          ))
-        }
+          <MainForm />
+        </div>
+        <div id='all-cs-title'>
+          <span id='all-cs-text'>Discover Campsites Available Now.</span>
+        </div>
+      <div className='main-home-container'>
+        <div className='main-home'>
+            {
+              allSites.map((data, i) => (
+                <CampsiteCard key={i} city={data.city} state={data.state} image={data.image1} id={data.id}/>
+              ))
+            }
+        </div>
       </div>
       <div className='bt-top' onClick={scrollTop}>
         <span id='bt-top-text'>Back to top</span>
