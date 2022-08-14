@@ -17,8 +17,6 @@ function Navigation({ isLoaded}) {
     sessionLinks = (
       <div className='logged-in-nav'>
       <ProfileButton user={sessionUser} />
-      <CreateCampsite />
-      <BookingsButton />
       </div>
     );
   } else {
@@ -37,13 +35,18 @@ function Navigation({ isLoaded}) {
   }
 
   return (
+    <div className='nav-bar-container'>
     <div className='nav-bar'>
+    <div className='left-nav'>
+     { !sessionUser && <div className='hamburger-container'></div> }
       <HomeButton />
+    </div>
     <ul className='ul-container'>
         <li className={sessionUser ? 'user-nav' : 'list-container'}>
         {isLoaded && sessionLinks}
       </li>
     </ul>
+    </div>
     </div>
   );
 }

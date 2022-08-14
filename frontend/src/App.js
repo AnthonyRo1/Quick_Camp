@@ -16,6 +16,7 @@ import {getBookings} from './store/bookings'
 import {useHistory} from 'react-router-dom';
 import {getReviews} from './store/reviews';
 import {getUsers} from './store/session';
+import GuestsAllowed from "./components/GuestsAllowed";
 function App() {
 
 
@@ -57,6 +58,9 @@ function App() {
           </Route>
           <Route path='/bookings'>
             <Bookings />
+          </Route>
+          <Route path='/search-filter'>
+            <GuestsAllowed />
           </Route>
         </Switch>
       )}

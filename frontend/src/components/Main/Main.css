@@ -1,5 +1,5 @@
 .main-entire {
-  margin-top: 140px;
+  /* margin-top: 140px; */
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
@@ -16,9 +16,10 @@
 .main-home {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 65vw;
-  column-gap: 2vw;
-  row-gap: 8vh;
+  width: 1248px;
+  column-gap: 20px;
+  row-gap: 40px;
+  padding-inline: 24px;
 }
 
 .mf-container {
@@ -112,11 +113,9 @@
 
 
 @media screen and (max-width: 1020px) {
-
   .main-home {
-    width: 80vw;
+    width: 100%;
   }
-
   #all-cs-title {
     width: 80vw;
   }
@@ -129,6 +128,7 @@
   .main-home {
     width: 100%;
     overflow: hidden;
+    padding-inline: 24px;
   }
 
 }
@@ -137,7 +137,7 @@
 @media screen and (max-width: 600px) {
 
   .main-home {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
   }

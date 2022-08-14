@@ -1,0 +1,27 @@
+
+
+.search-filter-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: white;;
+    z-index: 5;
+}
+
+.search-filter-show {
+    position: relative;
+    display: flex;
+    margin-top: 80px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 340px;
+    height: 250px;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid rgba(133, 201, 106, 0.541);
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.096);
+    animation: fade-in 0.2s ease-in;
+}

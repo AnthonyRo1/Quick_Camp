@@ -1,25 +1,26 @@
+.nav-bar-container {
+ width: 100%;
+}
 
 .nav-bar {
-  z-index: 2;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   margin: 0 auto;
-  position: fixed;
-  top: 0;
   background-color: #f3f2ee;
   height: 92px;
   text-decoration: none;
-  width: 100%;
-  /* padding-bottom: 50px; */
-  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.13);
+  max-width: 1264px;
+  padding-inline: 24px;
 }
 
 .ul-container {
   display: flex;
-  margin: 0 auto;
   text-decoration: none;
-  justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 
@@ -27,16 +28,13 @@
   display: flex;
   align-items: center;
   position: relative;
-  left: 28%;
-  margin: 0 auto;
   text-decoration: none;
   font-size: 18px;
   font-weight: 400px;
   line-height: 24px;
   letter-spacing: 0.22px;
-  
-  justify-content: center;
-  
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .list-container > a {
@@ -51,16 +49,22 @@
   border-color: #02c587;
 }
 
+.left-nav {
+  display: flex;
+}
 
+.hamburger-container {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+}
 
 .home {
-  position: relative;
-  left: 18%
+  display: flex;
+  align-items: center;
 }
 
 .home-btn {
-  width: 154px;
-  height: 35px;
 }
 
 .top-nav {
@@ -105,15 +109,14 @@
 .user-nav {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .logged-in-nav {
   display: flex;
   flex-direction: row;
-  position: relative;
-  left: 60%;
-  justify-content: space-evenly;
-  width: 500px;
+  width: 100%;
+  justify-content: flex-end;
 
 }
 
@@ -123,7 +126,6 @@
   justify-content: space-evenly;
   align-items: center;
   position: relative;
-  left: 8%;
   width: 150px;
   height: 50px
 }
@@ -152,20 +154,15 @@ transition: all 0.2s ease-in-out 0s;
 
 #bks-btn-text {
   position: relative;
-  left: 8%;
   font-size: 18px;
   color: #333333
   
 }
 
 .pd-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: -30%;
-  top: 28%;
+  display: inline-block;
+  z-index: 100;
+
 }
 
 
@@ -181,7 +178,6 @@ transition: all 0.2s ease-in-out 0s;
   width: 50px;
   border: 2px solid white;
   box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.356);
-  position: absolute;
   cursor: pointer;
   transition: all 0.2s ease-in-out 0s;
 }
@@ -196,22 +192,30 @@ transition: all 0.2s ease-in-out 0s;
 }
 
 .profile-dropdown {
-  list-style: none;
-  animation: slide-up 0.4s ease;
   position: absolute;
-  top: 240%;
-  border: 2px solid rgb(199, 126, 30);
-  background-color: white;
-  padding-right: 23px;
-  border-radius: 10px;
-  height: 120px;
+  display: none;
+  list-style: none;
+  padding-top: 20px;
+  height: 160px;
 }
 
+.pd-content-container {
+  height: 80%;
+  background-color: white;
+  border: 2px solid rgb(199, 126, 30);
+  border-radius: 10px;
+  animation: slide-up 0.4s ease;
+}
+
+
+.pd-container:hover .profile-dropdown {
+  display: block;
+}
 
 
 @keyframes slide-up {
   0% {
-    margin-top: 50px;
+    margin-top: 10px;
   }
 }
 
@@ -255,4 +259,25 @@ transition: all 0.2s ease-in-out 0s;
 .pd-name {
   margin-right: 10px;
   margin-top: 15px;
+}
+
+
+@media screen and (max-width: 1020px) {
+  .list-container {
+    display: none;
+  }
+  .home-btn {
+    height: 35px;
+    padding-left: 10px;
+  }
+}
+
+
+
+@media screen and (min-width: 1020px) {
+    .hamburger-container {
+      display: none;
+    }
+
+
 }

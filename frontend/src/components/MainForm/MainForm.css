@@ -386,8 +386,60 @@
   .dd-show {
     display: none;
   }
+
+  .mf-text, .mf-date, .mf-dropdown {
+    height: 42px;
+  }
 }
 
+.large-guestform-container {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.large-guestform-container body {
+  width: 100%;
+  position: fixed;
+}
+
+
+.lg-exit-row {
+  position: fixed;
+  top: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.lg-exit-btn {
+  margin-left: 56px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.lg-exit-icon {
+  font-size: 20px;
+}
+
+.lg-show-l-box {
+  height: 400px;
+  width: 400px;
+  background-color: green;
+}
 
 @media screen and (max-width: 600px) {
   .form-container {
@@ -451,4 +503,15 @@
   .mf-image {
       height: 200px;
     }
+}
+
+
+@media screen and (min-width: 1020px) {
+  .large-guestform-container {
+    display: none;
+  }
+}
+
+.large-guestform-container.hidden {
+  display: none;
 }

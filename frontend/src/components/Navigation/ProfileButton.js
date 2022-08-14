@@ -8,6 +8,8 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();
+
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -37,16 +39,18 @@ function ProfileButton({ user }) {
       <button className='pd-btn' onClick={openMenu}>
         <i className="fas fa-user-circle " />
       </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
+        <div className="profile-dropdown">
+
+          <div className='pd-content-container'>
           <li className='pd pd-name'>{user.username}</li>
           <li className='pd pd-email'>{user.email}</li>
           <li>
             <button className='lo-btn'onClick={logout}>Log Out</button>
           </li>
-        </ul>
-      )}
-      <span id='pd-text'>Profile</span>
+          </div>
+        </div>
+   
+
     </div>
   );
 }
