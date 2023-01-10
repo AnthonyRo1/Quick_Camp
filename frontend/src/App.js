@@ -5,22 +5,22 @@ import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
-import {getCampsites} from './store/campsites';
+import { getCampsites } from './store/campsites';
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
 import Campsite from "./components/Campsite";
 import StartHosting from "./components/StartHosting";
 import CreateForm from "./components/CreateForm";
 import Bookings from "./components/Bookings";
-import {getBookings} from './store/bookings'
-import {useHistory} from 'react-router-dom';
-import {getReviews} from './store/reviews';
-import {getUsers} from './store/session';
+import { getBookings } from './store/bookings'
+import { useHistory } from 'react-router-dom';
+import { getReviews } from './store/reviews';
+import { getUsers } from './store/session';
 import GuestsAllowed from "./components/GuestsAllowed";
 function App() {
 
 
-
+  // comment
 
 
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <Navigation className='nav-bar' isLoaded={isLoaded}/>
+      <Navigation className='nav-bar' isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           <Route path='/' exact>
